@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">FoodTick</string>
+    <string name="nombreapp1">Food</string>
+    <string name="nombreapp2">Tick</string>
+    <string name="aloha"> Buenos Días</string>
+    <string name="textBienvenida">En esta aplicaion te diremos cuales de nuestros productos, de los que disponemos en la base de datos, son saludables para tu alimentación y caules no.</string>
+    <string name="textBienvenida2">Escoge una categoría y busca el alimentos que deseas.</string>
+    <string name="carnes">Carnes</string>
+    <string name="pescados">Pescados</string>
+    <string name="Hortalizas">Hortalizas</string>
+    <string name="Azucares">Azucares</string>
+    <string name="Bebidas">Bebidas</string>
+    <string name="Pasta">Pasta</string>
+    <string name="Pastelería">Pastelería</string>
+    <string name="Ultraprocesados">Procesados</string>
+</resources>
