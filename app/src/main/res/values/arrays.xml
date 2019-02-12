@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="nombrecesC">
+        <item>Aguila</item>
+        <item>Ballena</item>
+        <item>Caballo</item>
+        <item>Chimuelo</item>
+        <item>Delfin</item>
+        <item>Gato</item>
+        <item>Libro</item>
+        <item>Perro</item>
+        <item>Vaca</item>
+    </string-array>
+
+    <string-array name="categoriasC">
+        <item>El Aguila mola mucho</item>
+        <item>SON TOOOOOO GRANDES</item>
+        <item>Tiene 4 patas y una cola</item>
+        <item>CHIMUEEEEELOOO</item>
+        <item>Viven en el agua y son muy inteligentes</item>
+        <item>Por tener dicen que tienen 7 vidas pero yo no me lo creo</item>
+        <item>Es genial, menudas historias cuenta</item>
+        <item>Gua gua</item>
+        <item>Tiene leche merengada hay que vaca tan salada</item>
+    </string-array>
+
+    <array name="fotos">
+        <item>@drawable/donut</item>
+        <item>@drawable/carne</item>
+        <item>@drawable/pescados</item>
+        <item>@drawable/drink</item>
+        <item>@drawable/hortalizas</item>
+        <item>@drawable/pasta</item>
+        <item>@drawable/procesados</item>
+        <item>@drawable/sugar</item>
+        <item>@drawable/pescados</item>
+    </array>
+</resources>
