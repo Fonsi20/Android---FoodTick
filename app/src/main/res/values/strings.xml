@@ -13,4 +13,6 @@
     <string name="Pasta">Pasta</string>
     <string name="Pastelería">Pastelería</string>
     <string name="Ultraprocesados">Procesados</string>
+    <string name="infoNutricional">Información Nutricional del Alimento</string>
+    <string name="essaludable">Es Saludable</string>
 </resources>

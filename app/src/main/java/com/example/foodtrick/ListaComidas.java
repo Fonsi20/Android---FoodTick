@@ -1,5 +1,6 @@
 package com.example.foodtrick;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -35,7 +36,8 @@ public class ListaComidas extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(ListaComidas.this, "Elección: " + comidas[position].getNombre(), Toast.LENGTH_LONG).show();
+                Intent i = new Intent(ListaComidas.this, Producto.class);
+                startActivity(i);
             }
         });
 
