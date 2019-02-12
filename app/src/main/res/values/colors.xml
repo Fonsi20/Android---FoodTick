@@ -7,4 +7,5 @@
     <color name="white">#FFF</color>
     <color name="black">#1d1d1d</color>
     <color name="whiteBreak">#e0e0e0</color>
+    <color name="transparente">#00000000</color>
 </resources>

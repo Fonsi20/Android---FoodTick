@@ -7,14 +7,18 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:layout_margin="10dp"
         android:id="@+id/imgIcon"
-        android:layout_width="100dp"
-        android:layout_height="100dp"/>
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="10dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:layout_margin="10dp"
         android:orientation="vertical">
 
@@ -22,26 +26,26 @@
             android:id="@+id/txNombre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
+            android:layout_marginTop="5dp"
+            android:paddingRight="30dp"
+            android:paddingLeft="30dp"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
+            android:gravity="center"
             android:id="@+id/txCategoria"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:textColor="@color/black"
-            android:textSize="14sp" />
+            android:background="@drawable/boton_redondo2"
+            android:textColor="@color/yellow"
+            android:textSize="12sp"
+            android:textStyle="bold" />
 
-        <ImageView
-            android:id="@+id/botonActividad"
-            android:src="@drawable/donut"
-            android:layout_width="15dp"
-            android:layout_height="15dp"
-            android:layout_gravity="bottom|right"
-            android:layout_margin="7dp" />
+
     </LinearLayout>
 
 
