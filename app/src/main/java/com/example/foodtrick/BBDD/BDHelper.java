@@ -31,6 +31,20 @@ public class BDHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQLCrearCat);
         sqLiteDatabase.execSQL(SQLCrearAli);
+        sqLiteDatabase.execSQL("INSERT INTO Categorias values (1,'Carne','Come Carne menos de 5 veces a la semana.')," +
+                "(2,'Pescado','El pescado es muy buneo.')," +
+                "(3,'Hortalizas','Del campo a tu casa.')," +
+                "(4,'Bebidas','Desde agua a bebidas alcoholicas.')," +
+                "(5,'Lacteos','Yogures, quesos, leche.')," +
+                "(6,'Frutas','Pomelo <3.')," +
+                "(7,'Postres','THE CAKE IS A LIE!.')," +
+                "(8,'Pasta','Unos buenos rigoletis di el doctore hecter')");
+        sqLiteDatabase.execSQL("INSERT INTO Alimentos values ('Lomo Embuchado',14,245,75,1)," +
+                "('Solomillo Mercadona',145,89,32,1)," +
+                "('Agua',0,0,0,4)," +
+                "('Carne picada de Cerdo y Ternera',15,72,32,1)," +
+                "('Pizza Casa Tarradellas Carbonara',405,9,82,8)," +
+                "('Salmón Pescanoba',254,35,21,2)");
     }
 
     @Override
