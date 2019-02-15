@@ -17,8 +17,8 @@ public class BDHelper extends SQLiteOpenHelper {
     static final String columna7 = "hidratos";
     static final String columna8 = "cat";
 
-    String SQLCrearAli = "CREATE TABLE " + tabla2 + "(" + columna4 + " INTEGER PRIMARY KEY, " + columna5 + " VARCHAR(30), " + columna6 + " VARCHAR(30), " + columna7 + " VARCHAR(30), " + columna8 + " VARCHAR(30))";
-    String SQLCrearCat = "CREATE TABLE " + tabla1 + "(" + columna1 + " INTEGER PRIMARY KEY, " + columna2 + " VARCHAR(30), " + columna3 + " VARCHAR(300), FOREIGN KEY (id) REFERENCES Alimentos(cat))";
+    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " INTEGER(30), " + columna6 + " INTEGER(30), " + columna7 + " INTEGER(30), " + columna8 + " INTEGER, FOREIGN KEY ("+columna8+") REFERENCES Categorias("+columna1+"))";
+    String SQLCrearCat = "CREATE TABLE IF NOT EXISTS " + tabla1 + "(" + columna1 + " INTEGER PRIMARY KEY, " + columna2 + " VARCHAR(30), " + columna3 + " VARCHAR(300))";
 
     String SQLDeleteAli = "DROP TABLE IF EXISTS " + tabla2;
     String SQLDeleteCat = "DROP TABLE IF EXISTS " + tabla1;
@@ -29,8 +29,8 @@ public class BDHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
-        sqLiteDatabase.execSQL(SQLCrearAli);
         sqLiteDatabase.execSQL(SQLCrearCat);
+        sqLiteDatabase.execSQL(SQLCrearAli);
     }
 
     @Override

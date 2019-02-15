@@ -1,0 +1,22 @@
+drop database IF EXISTS Comidas;
+create database IF NOT EXISTS Comidas;
+
+use Comidas;
+
+create table if not exists Categorias (
+    id int(2) autoincrement not null,
+    nombreC varchar(24) not null,
+    descripcion varchar(300) not null,
+    PRIMARY KEY (id),
+    FOREIGN KEY (id) REFERENCES Alimentos(cat),
+    unique index (nombre)
+);
+
+create table if not exists Alimentos (
+    nombreA varchar(24) not null,
+    grasa varchar(24) not null,
+    azucares varchar(24) not null
+    calorias varchar(24) not null,
+    cat int(2) not null,
+    PRIMARY KEY (nombre)
+);
