@@ -1,4 +1,4 @@
-package com.example.foodtrick;
+package com.example.foodtrick.Objetos;
 
 public class Comida {
     private String nombre;

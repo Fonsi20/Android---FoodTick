@@ -1,12 +1,19 @@
 package com.example.foodtrick;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
+import com.example.foodtrick.BBDD.BDHelper;
+
 public class MainActivity extends AppCompatActivity {
+
+    private String BDname;
+    private int BDversion;
+    private SQLiteDatabase DBComidas;
 
     private ImageButton btnCarne;
 
@@ -17,6 +24,11 @@ public class MainActivity extends AppCompatActivity {
 
         btnCarne = (ImageButton) findViewById(R.id.btnCarne);
 
+        BDname = "Comidas";
+        BDversion = 1;
+        BDHelper bdhelper = new BDHelper(this, BDname, null, BDversion);
+        DBComidas = bdhelper.getWritableDatabase();
+
         btnCarne.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -24,6 +36,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
-
+        DBComidas.close();
     }
 }

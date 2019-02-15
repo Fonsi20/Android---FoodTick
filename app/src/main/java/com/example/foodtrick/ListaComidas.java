@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
+
+import com.example.foodtrick.Adaptadores.AdaptadorPersonalizado;
+import com.example.foodtrick.Objetos.Comida;
 
 public class ListaComidas extends AppCompatActivity {
 
