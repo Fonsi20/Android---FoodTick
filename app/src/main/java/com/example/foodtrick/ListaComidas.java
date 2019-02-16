@@ -25,7 +25,7 @@ public class ListaComidas extends AppCompatActivity {
     private Comida[] comidas;
     private TextView nomCat;
     private String Categoria;
-    ArrayList<String> listaComida;
+    private String numCat;
     ArrayList<Comida> ComidaList;
 
     private String BDname;
@@ -43,7 +43,6 @@ public class ListaComidas extends AppCompatActivity {
         DBComidas = bdhelper.getWritableDatabase();
 
 
-
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
         Categoria = bundle.getString("Categoria");
@@ -51,17 +50,34 @@ public class ListaComidas extends AppCompatActivity {
         nomCat = findViewById(R.id.nombreCat);
         nomCat.setText(Categoria);
 
+        switch (Categoria) {
+            case "Carne":
+                numCat = "1";
+                break;
+            case "Pescado":
+                numCat = "2";
+                break;
+            case "Hortalizas":
+                numCat = "3";
+                break;
+            case "Bebidas":
+                numCat = "4";
+                break;
+            case "Lacteos":
+                numCat = "5";
+                break;
+            case "Frutas":
+                numCat = "6";
+                break;
+            case "Postres":
+                numCat = "7";
+                break;
+            case "Pasta":
+                numCat = "8";
+                break;
+        }
+
         consultarListaComidas();
-
-        /*String[] arrayNombreComidas = getResources().getStringArray(R.array.nombrecesC);
-        String[] arrayCategoriaComidas = getResources().getStringArray(R.array.categoriasC);
-        Integer[] idFotos = new Integer[]{R.drawable.carne, R.drawable.pescados, R.drawable.pasta, R.drawable.procesados, R.drawable.saugar, R.drawable.donut, R.drawable.drink, R.drawable.hortalizas, R.drawable.pescados};
-        comidas = new Comida[arrayNombreComidas.length];
-
-        for (int i = 0; i < arrayNombreComidas.length; i++) {
-            Comida comida = new Comida(arrayNombreComidas[i], arrayCategoriaComidas[i], idFotos[i]);
-            comidas[i] = comida;
-        }*/
 
         AdaptadorPersonalizado adaptador = new AdaptadorPersonalizado(this, ComidaList);
         lv.setAdapter(adaptador);
@@ -84,22 +100,16 @@ public class ListaComidas extends AppCompatActivity {
 
         while (cursor.moveToNext()) {
             com = new Comida();
-            com.setCategoria(Categoria);
+            com.setCategoria(cursor.getString(4));
             com.setNombre(cursor.getString(0));
             com.setImg(R.drawable.hortalizas);
 
             Log.i("Categoria", String.valueOf(com.getCategoria().toString()));
             Log.i("Nombre", com.getNombre().toString());
 
-            ComidaList.add(com);
-        }
-        obtenerLista();
-    }
-
-    private void obtenerLista() {
-        listaComida = new ArrayList<String>();
-        for (int i = 0; i < ComidaList.size(); i++) {
-            listaComida.add(ComidaList.get(i).getNombre());
+            if (com.getCategoria().toString().equals(numCat)) {
+                ComidaList.add(com);
+            }
         }
     }
 }
