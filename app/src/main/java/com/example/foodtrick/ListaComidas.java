@@ -85,7 +85,9 @@ public class ListaComidas extends AppCompatActivity {
         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Comida o = (Comida) lv.getItemAtPosition(position);
                 Intent i = new Intent(ListaComidas.this, Producto.class);
+                i.putExtra("NombreDelProducto", o.getNombre().toString());
                 startActivity(i);
             }
         });
