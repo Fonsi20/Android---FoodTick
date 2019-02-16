@@ -21,7 +21,7 @@ public class Producto extends AppCompatActivity {
     private TextView txtNombreP, txtNombreCat, txtGrasas, txtAzucares, txtHidratos;
     private productoMostrar pMostrar;
     private String nombreP;
-    private LinearLayout imagenFondo;
+    private LinearLayout LLProdu;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,7 @@ public class Producto extends AppCompatActivity {
         txtAzucares = findViewById(R.id.cantidadCaloricas);
         txtHidratos = findViewById(R.id.cantidadHidratos);
         txtGrasas = findViewById(R.id.cantidadGrasas);
-        imagenFondo = findViewById(R.id.background);
+        LLProdu = findViewById(R.id.LLProducto);
 
         consultaComidaProducto();
 
@@ -51,7 +51,7 @@ public class Producto extends AppCompatActivity {
         txtGrasas.setText(String.valueOf(pMostrar.getGrasas()));
         txtAzucares.setText(String.valueOf(pMostrar.getAzucares()));
         txtHidratos.setText(String.valueOf(pMostrar.getHidratos()));
-        //imagenFondo.setBackground(pMostrar.getImg());
+        //LLProdu.setBackground(R.drawable.fondoprodudefualt);
 
     }
 
@@ -64,7 +64,7 @@ public class Producto extends AppCompatActivity {
                 pMostrar = new productoMostrar();
                 pMostrar.setNombre(cursor.getString(0));
                 pMostrar.setCategoria(cursor.getString(1));
-                pMostrar.setImg(R.drawable.fondo);
+                pMostrar.setImg(R.drawable.fondoprodudefualt);
                 pMostrar.setHidratos(cursor.getInt(2));
                 pMostrar.setAzucares(cursor.getInt(3));
                 pMostrar.setGrasas(cursor.getInt(4));
