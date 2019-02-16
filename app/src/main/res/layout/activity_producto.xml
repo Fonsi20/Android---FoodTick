@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/LLProducto"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LLProducto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:adjustViewBounds="true"
@@ -247,12 +247,16 @@
             android:background="@drawable/boton_redondo" />
 
 
-        <Button
+        <TextView
+            android:textColor="@color/white"
+            android:textSize="16sp"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="45dp"
             android:layout_margin="20dp"
             android:background="@drawable/boton_saludable"
-            android:text="@string/essaludable" />
+            android:gravity="center"
+            android:text="@string/essaludable"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

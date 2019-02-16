@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.example.foodtrick.R;
+
 public class BDHelper extends SQLiteOpenHelper {
 
     static final String tabla1 = "Categorias";
@@ -19,7 +21,7 @@ public class BDHelper extends SQLiteOpenHelper {
     static final String columna9 = "img360pro";
     static final String columna10 = "imgpro";
 
-    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " INTEGER(30), " + columna6 + " INTEGER(30), " + columna7 + " INTEGER(30), " + columna8 + " INTEGER, " + columna10 + " BLOB," + columna9 + "BLOB, FOREIGN KEY (" + columna8 + ") REFERENCES Categorias(" + columna1 + "))";
+    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " INTEGER(30), " + columna6 + " INTEGER(30), " + columna7 + " INTEGER(30), " + columna8 + " INTEGER, " + columna10 + " BLOB," + columna9 + " BLOB, FOREIGN KEY (" + columna8 + ") REFERENCES Categorias(" + columna1 + "))";
     String SQLCrearCat = "CREATE TABLE IF NOT EXISTS " + tabla1 + "(" + columna1 + " INTEGER PRIMARY KEY, " + columna2 + " VARCHAR(30), " + columna3 + " VARCHAR(300))";
 
     String SQLDeleteAli = "DROP TABLE IF EXISTS " + tabla2;
@@ -42,7 +44,7 @@ public class BDHelper extends SQLiteOpenHelper {
                 "(7,'Postres','THE CAKE IS A LIE!.')," +
                 "(8,'Pasta','Unos buenos rigoletis di el doctore hecter')");
         sqLiteDatabase.execSQL("INSERT INTO Alimentos values ('Lomo Embuchado',14,245,75,1,'','')," +
-                "('Solomillo Mercadona',145,89,32,1,'','')," +
+                "('Solomillo Mercadona',145,89,32,1,'','" + R.drawable.carne + "')," +
                 "('Costilla de Ternera',105,21,455,1,'','')," +
                 "('Agua',0,0,0,4,'','')," +
                 "('Leche Asturian Desnatada',36,45,10,5,'','')," +

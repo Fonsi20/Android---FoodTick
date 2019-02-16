@@ -104,7 +104,12 @@ public class ListaComidas extends AppCompatActivity {
             com = new Comida();
             com.setCategoria(cursor.getString(4));
             com.setNombre(cursor.getString(0));
-            com.setImg(R.drawable.hortalizas);
+            int valor = cursor.getInt(6);
+            if (valor == 0) {
+                com.setImg(R.drawable.foodtick360);
+            } else {
+                com.setImg(cursor.getInt(6));
+            }
 
             Log.i("Categoria", String.valueOf(com.getCategoria().toString()));
             Log.i("Nombre", com.getNombre().toString());
