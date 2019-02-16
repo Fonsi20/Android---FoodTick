@@ -13,12 +13,14 @@ import android.widget.TextView;
 import com.example.foodtrick.Objetos.Comida;
 import com.example.foodtrick.R;
 
+import java.util.ArrayList;
+
 public class AdaptadorPersonalizado extends ArrayAdapter {
 
     private Activity context;
-    private Comida[] comida;
+    private ArrayList<Comida> comida;
 
-    public AdaptadorPersonalizado(Activity context, Comida[] comida) {
+    public AdaptadorPersonalizado(Activity context, ArrayList<Comida> comida) {
         super(context, R.layout.item_lista, comida);
         this.context = context;
         this.comida = comida;
@@ -54,9 +56,9 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
 
         fila.setBackgroundColor(context.getResources().getColor(R.color.white));
 
-        holder.txNombre.setText(comida[position].getNombre());
-        holder.txCategoria.setText(comida[position].getCategoria());
-        holder.imagen.setImageResource(comida[position].getImg());
+        holder.txNombre.setText(comida.get(position).getNombre());
+        holder.txCategoria.setText("Mas información");
+        holder.imagen.setImageResource(comida.get(position).getImg());
 
         return fila;
     }
