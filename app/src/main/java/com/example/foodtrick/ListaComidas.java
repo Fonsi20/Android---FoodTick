@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import com.example.foodtrick.Adaptadores.AdaptadorPersonalizado;
 import com.example.foodtrick.Objetos.Comida;
@@ -13,18 +14,25 @@ import com.example.foodtrick.Objetos.Comida;
 public class ListaComidas extends AppCompatActivity {
 
     private ListView lv;
-    private  Comida[] comidas;
+    private Comida[] comidas;
+    private TextView nomCat;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_comidas);
 
+        String Categoria;
+        Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        Categoria = bundle.getString("Categoria");
         lv = (ListView) findViewById(R.id.lvComidas);
+        nomCat = findViewById(R.id.nombreCat);
+        nomCat.setText(Categoria);
 
         String[] arrayNombreComidas = getResources().getStringArray(R.array.nombrecesC);
         String[] arrayCategoriaComidas = getResources().getStringArray(R.array.categoriasC);
-        Integer[] idFotos =new Integer[]{R.drawable.carne, R.drawable.pescados, R.drawable.pasta, R.drawable.procesados, R.drawable.saugar, R.drawable.donut, R.drawable.drink, R.drawable.hortalizas, R.drawable.pescados};
+        Integer[] idFotos = new Integer[]{R.drawable.carne, R.drawable.pescados, R.drawable.pasta, R.drawable.procesados, R.drawable.saugar, R.drawable.donut, R.drawable.drink, R.drawable.hortalizas, R.drawable.pescados};
         comidas = new Comida[arrayNombreComidas.length];
 
         for (int i = 0; i < arrayNombreComidas.length; i++) {

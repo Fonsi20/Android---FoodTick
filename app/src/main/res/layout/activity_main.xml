@@ -90,15 +90,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/btn1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/carnes"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnCarne"
+                android:id="@+id/btncate1"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/boton_redondo"
@@ -115,15 +115,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/btn2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/pescados"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnPescado"
+                android:id="@+id/btncate2"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/boton_redondo"
@@ -140,15 +140,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/btn3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/Hortalizas"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnHortalizas"
+                android:id="@+id/btncate3"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/boton_redondo"
@@ -165,15 +165,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/btn4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/Azucares"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnAzucares"
+                android:id="@+id/btncate4"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/boton_redondo"
@@ -188,8 +188,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="25dp"
         android:layout_marginTop="20dp"
+        android:layout_marginBottom="25dp"
         android:gravity="center"
         android:orientation="horizontal">
 
@@ -202,15 +202,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/btn5"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/Bebidas"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnBebidas"
+                android:id="@+id/btncate5"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/boton_redondo"
@@ -227,15 +227,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/btn6"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/Pasta"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnPasta"
+                android:id="@+id/btncate6"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/boton_redondo"
@@ -252,15 +252,15 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/btn7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/Pastelería"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnPasteleria"
+                android:id="@+id/btncate7"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/boton_redondo"
@@ -277,23 +277,20 @@
             android:orientation="vertical">
 
             <TextView
+                android:id="@+id/btn8"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingBottom="10dp"
-                android:text="@string/Ultraprocesados"
                 android:textColor="@color/black"
                 android:textStyle="bold" />
 
             <ImageButton
-                android:id="@+id/btnProcesados"
+                android:id="@+id/btncate8"
                 android:layout_width="70dp"
                 android:layout_height="70dp"
                 android:background="@drawable/boton_redondo"
                 android:src="@drawable/procesados" />
 
         </LinearLayout>
-
-
     </LinearLayout>
-
 </LinearLayout>
