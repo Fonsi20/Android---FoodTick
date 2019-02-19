@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,6 +37,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         TextView txCategoria;
         ImageView imagen;
         ImageButton btnAddCart;
+        int counter = 0;
     }
 
     @NonNull
@@ -71,7 +73,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, Producto.class);
-                i.putExtra("NombreDelProducto",holder.txNombre.toString());
+                i.putExtra("NombreDelProducto", holder.txNombre.getText().toString());
                 context.startActivity(i);
             }
         });
@@ -79,7 +81,14 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
                                                  @Override
                                                  public void onClick(View view) {
-                                                     holder.btnAddCart.setImageResource(R.drawable.cart_shop_green);
+                                                     Log.i("productoNUEVO", holder.btnAddCart.getBackground().toString());
+                                                     if (holder.counter == 0) {
+                                                         holder.counter++;
+                                                         holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
+                                                     } else {
+                                                         holder.counter--;
+                                                         holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
+                                                     }
                                                  }
                                              }
         );
