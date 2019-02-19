@@ -1,16 +1,21 @@
 package com.example.foodtrick.Adaptadores;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.foodtrick.ListaComidas;
+import com.example.foodtrick.MainActivity;
 import com.example.foodtrick.Objetos.Comida;
+import com.example.foodtrick.Producto;
 import com.example.foodtrick.R;
 
 import java.util.ArrayList;
@@ -30,6 +35,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         TextView txNombre;
         TextView txCategoria;
         ImageView imagen;
+        ImageButton btnAddCart;
     }
 
     @NonNull
@@ -37,7 +43,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
     public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         View fila = convertView;
-        ViewHolder holder;
+        final ViewHolder holder;
 
         if (fila == null) {
             LayoutInflater layoutInflater = context.getLayoutInflater();
@@ -48,6 +54,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
             holder.txNombre = (TextView) fila.findViewById(R.id.txNombre);
             holder.txCategoria = (TextView) fila.findViewById(R.id.txCategoria);
             holder.imagen = (ImageView) fila.findViewById(R.id.imgIcon);
+            holder.btnAddCart = (ImageButton) fila.findViewById(R.id.btnAñadirCarrito);
 
             fila.setTag(holder);
         } else {
@@ -59,6 +66,23 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         holder.txNombre.setText(comida.get(position).getNombre());
         holder.txCategoria.setText("Mas información");
         holder.imagen.setImageResource(comida.get(position).getImg());
+
+        holder.txCategoria.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, Producto.class);
+                i.putExtra("NombreDelProducto",holder.txNombre.toString());
+                context.startActivity(i);
+            }
+        });
+
+        holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
+                                                 @Override
+                                                 public void onClick(View view) {
+                                                     holder.btnAddCart.setImageResource(R.drawable.cart_shop_green);
+                                                 }
+                                             }
+        );
 
         return fila;
     }

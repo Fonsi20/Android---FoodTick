@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -41,7 +42,6 @@ public class ListaComidas extends AppCompatActivity {
         BDversion = 1;
         BDHelper bdhelper = new BDHelper(this, BDname, null, BDversion);
         DBComidas = bdhelper.getWritableDatabase();
-
 
         Intent intent = getIntent();
         Bundle bundle = intent.getExtras();
@@ -82,7 +82,7 @@ public class ListaComidas extends AppCompatActivity {
         AdaptadorPersonalizado adaptador = new AdaptadorPersonalizado(this, ComidaList);
         lv.setAdapter(adaptador);
 
-        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+       /** lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Comida o = (Comida) lv.getItemAtPosition(position);
@@ -90,7 +90,7 @@ public class ListaComidas extends AppCompatActivity {
                 i.putExtra("NombreDelProducto", o.getNombre().toString());
                 startActivity(i);
             }
-        });
+        });**/
 
         DBComidas.close();
 

@@ -2,12 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_marginLeft="2dp"
     android:layout_marginTop="2dp"
     android:layout_marginRight="2dp"
     android:layout_marginBottom="2dp"
     android:background="@color/whiteBreak"
-    android:orientation="horizontal">
+    android:orientation="horizontal"
+    tools:context=".ListaComidas">
 
     <ImageView
         android:id="@+id/imgIcon"
@@ -52,6 +54,7 @@
     </LinearLayout>
 
     <ImageButton
+        android:id="@+id/btnAñadirCarrito"
         android:layout_marginRight="40dp"
         android:layout_gravity="center"
         android:layout_width="30dp"
