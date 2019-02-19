@@ -1,23 +1,16 @@
 package com.example.foodtrick;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.foodtrick.Adaptadores.AdaptadorPersonalizado;
 import com.example.foodtrick.BBDD.BDHelper;
-import com.example.foodtrick.Objetos.Categoria;
 import com.example.foodtrick.Objetos.Comida;
 
 import java.util.ArrayList;
@@ -30,6 +23,7 @@ public class ListaComidas extends AppCompatActivity {
     private String Categoria;
     private String numCat;
     ArrayList<Comida> ComidaList;
+    ArrayList<Comida> listComMarcada;
 
     private String BDname;
     private int BDversion;
@@ -39,6 +33,7 @@ public class ListaComidas extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lista_comidas);
+
 
         BDname = "Comidas";
         BDversion = 1;
@@ -92,9 +87,6 @@ public class ListaComidas extends AppCompatActivity {
         Comida com = null;
         ComidaList = new ArrayList<Comida>();
 
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ListaComidas.this);
-        String alimentoSelec = prefs.getString("nombreComida", "");
-
         //select * from Alimentos, la categoria ya la tengo arriba, que la recibo el putExtra
         Cursor cursor = DBComidas.rawQuery("SELECT * FROM Alimentos", null);
 
@@ -102,13 +94,20 @@ public class ListaComidas extends AppCompatActivity {
             com = new Comida();
             com.setCategoria(cursor.getString(4));
             com.setNombre(cursor.getString(0));
-            Log.i("productoNUEVO", com.getNombre());
-            Log.i("productoNUEVO", alimentoSelec.toString());
-            if (alimentoSelec.toString().equals(com.getNombre())) {
-                com.setCont(1);
+            if (listComMarcada == null || listComMarcada.size() == 0) {
+                Log.i("productoNUEVO", "ERROR: No hay nada en la lista");
             } else {
-                com.setCont(0);
+                Log.i("productoNUEVO", "Tamaño lista: " + listComMarcada.size());
+                for (int i = 0; listComMarcada.size() > i; i++) {
+                    Log.i("productoNUEVO", "entraaaaaaaaaa");
+                    if (listComMarcada.get(i).getNombre().equals(com.getNombre())) {
+                        com.setCont(1);
+                    } else {
+                        com.setCont(0);
+                    }
+                }
             }
+
             int valor = cursor.getInt(6);
             if (valor == 0) {
                 com.setImg(R.drawable.foodtick360);
@@ -127,9 +126,8 @@ public class ListaComidas extends AppCompatActivity {
         super.onStop();
 
         int i = 0;
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ListaComidas.this);
-        SharedPreferences.Editor editor = prefs.edit();
-
+        listComMarcada = new ArrayList<Comida>();
+        Log.i("productoNUEVO", "cantidad de comidas en la lista: " + ComidaList.size());
         while (ComidaList.size() > i) {
             String nombre = ComidaList.get(i).getNombre();
             int conta = ComidaList.get(i).getCont();
@@ -137,9 +135,9 @@ public class ListaComidas extends AppCompatActivity {
 
             if (conta != 0) {
                 Log.i("productoNUEVO", nombre.toString());
-                editor.putString("nombreComida", nombre.toString());
+                listComMarcada.add(ComidaList.get(i));
             }
-            editor.apply();
         }
+        Log.i("productoNUEVO", "cantidad de comidas en la lista de Marcados: " + listComMarcada.size());
     }
 }

@@ -14,5 +14,6 @@
     <string name="Pastelería">Pastelería</string>
     <string name="Ultraprocesados">Procesados</string>
     <string name="infoNutricional">Información Nutricional del Alimento</string>
-    <string name="essaludable">Es Saludable</string>
+    <string name="essaludable">ES SALUDABLE</string>
+    <string name="vaciarCesta">Vaciar Cesta</string>
 </resources>

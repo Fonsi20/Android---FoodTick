@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -22,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private SQLiteDatabase DBComidas;
 
     private TextView bC1, bC2, bC3, bC4, bC5, bC6, bC7, bC8;
-    private ImageButton btnCat1, btnCat2, btnCat3, btnCat4, btnCat5, btnCat6, btnCat7, btnCat8;
+    private ImageButton btnCat1, btnCat2, btnCat3, btnCat4, btnCat5, btnCat6, btnCat7, btnCat8, btnMenu;
     ArrayList<String> listaCategorias;
     ArrayList<Categoria> CategoriasList;
 
@@ -39,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         btnCat6 = (ImageButton) findViewById(R.id.btncate6);
         btnCat7 = (ImageButton) findViewById(R.id.btncate7);
         btnCat8 = (ImageButton) findViewById(R.id.btncate8);
+        btnMenu = (ImageButton) findViewById(R.id.btnMenu);
         bC1 = (TextView) findViewById(R.id.btn1);
         bC2 = (TextView) findViewById(R.id.btn2);
         bC3 = (TextView) findViewById(R.id.btn3);
@@ -152,6 +152,14 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent(MainActivity.this, ListaComidas.class);
                 i.putExtra("Categoria", listaCategorias.get(7));
+                startActivity(i);
+            }
+        });
+
+        btnMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(MainActivity.this, MenuActivity.class);
                 startActivity(i);
             }
         });

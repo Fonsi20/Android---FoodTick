@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,6 +65,11 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         holder.txNombre.setText(comida.get(position).getNombre());
         holder.txCategoria.setText("Mas información");
         holder.imagen.setImageResource(comida.get(position).getImg());
+        if (comida.get(position).getCont() == 0) {
+            holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
+        } else {
+            holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
+        }
 
         holder.txCategoria.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,10 +83,11 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
                                                  @Override
                                                  public void onClick(View view) {
+                                                     Log.i("productoNUEVO", String.valueOf(comida.get(position).getCont()));
                                                      if (comida.get(position).getCont() == 0) {
                                                          comida.get(position).setCont(1);
                                                          holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
-                                                     } else {
+                                                     }else  if (comida.get(position).getCont() == 1) {
                                                          comida.get(position).setCont(0);
                                                          holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
                                                      }

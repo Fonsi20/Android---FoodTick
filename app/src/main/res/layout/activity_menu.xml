@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:orientation="vertical"
+    android:gravity="bottom"
+    tools:context=".MenuActivity">
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/boton_redondo"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="@string/vaciarCesta"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_gravity="bottom"
+        android:layout_marginLeft="45dp"
+        android:layout_marginRight="45dp"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/boton_saludable"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:text="@string/essaludable"
+        android:textColor="@color/white"
+        android:textSize="12sp" />
+
+</LinearLayout>

@@ -24,42 +24,43 @@
 
 
         <TextView
-            android:fontFamily="@font/montserrat_bold"
             android:id="@+id/NombreProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:paddingTop="30dp"
             android:paddingBottom="5dp"
             android:text="Nombre del Alimento"
             android:textColor="@color/black"
-            android:textSize="18sp"/>
+            android:textSize="18sp" />
 
 
         <TextView
-            android:fontFamily="@font/montserrat_regular"
             android:id="@+id/CategoriaProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/montserrat_regular"
             android:gravity="center"
-            android:paddingBottom="15dp"
+            android:paddingBottom="10dp"
             android:text="Categoría de la comida"
             android:textColor="@color/black"
             android:textSize="12sp" />
 
         <TextView
             android:layout_width="100dp"
-            android:layout_height="5dp"
+            android:layout_height="3dp"
             android:layout_gravity="center"
             android:layout_marginBottom="20dp"
             android:background="@drawable/boton_redondo" />
 
         <TextView
-            android:fontFamily="@font/montserrat_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:gravity="start"
+            android:layout_marginRight="20dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:gravity="center"
             android:paddingBottom="12dp"
             android:text="@string/infoNutricional"
             android:textColor="@color/grey"
@@ -188,7 +189,7 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="300dp"
+            android:layout_width="100dp"
             android:layout_height="3dp"
             android:layout_gravity="center"
             android:background="@drawable/boton_redondo" />
@@ -197,13 +198,16 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:layout_margin="20dp"
+            android:layout_marginLeft="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="35dp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/boton_saludable"
             android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:text="@string/essaludable"
             android:textColor="@color/white"
-            android:textSize="15sp" />
+            android:textSize="12sp" />
 
     </LinearLayout>
 
