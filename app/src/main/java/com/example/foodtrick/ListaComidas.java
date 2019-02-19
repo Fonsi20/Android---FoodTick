@@ -1,8 +1,10 @@
 package com.example.foodtrick;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -82,16 +84,6 @@ public class ListaComidas extends AppCompatActivity {
         AdaptadorPersonalizado adaptador = new AdaptadorPersonalizado(this, ComidaList);
         lv.setAdapter(adaptador);
 
-       /** lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Comida o = (Comida) lv.getItemAtPosition(position);
-                Intent i = new Intent(ListaComidas.this, Producto.class);
-                i.putExtra("NombreDelProducto", o.getNombre().toString());
-                startActivity(i);
-            }
-        });**/
-
         DBComidas.close();
 
     }
@@ -99,6 +91,10 @@ public class ListaComidas extends AppCompatActivity {
     private void consultarListaComidas() {
         Comida com = null;
         ComidaList = new ArrayList<Comida>();
+
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ListaComidas.this);
+        String alimentoSelec = prefs.getString("nombreComida", "");
+
         //select * from Alimentos, la categoria ya la tengo arriba, que la recibo el putExtra
         Cursor cursor = DBComidas.rawQuery("SELECT * FROM Alimentos", null);
 
@@ -106,6 +102,13 @@ public class ListaComidas extends AppCompatActivity {
             com = new Comida();
             com.setCategoria(cursor.getString(4));
             com.setNombre(cursor.getString(0));
+            Log.i("productoNUEVO", com.getNombre());
+            Log.i("productoNUEVO", alimentoSelec.toString());
+            if (alimentoSelec.toString().equals(com.getNombre())) {
+                com.setCont(1);
+            } else {
+                com.setCont(0);
+            }
             int valor = cursor.getInt(6);
             if (valor == 0) {
                 com.setImg(R.drawable.foodtick360);
@@ -113,12 +116,30 @@ public class ListaComidas extends AppCompatActivity {
                 com.setImg(cursor.getInt(6));
             }
 
-            Log.i("Categoria", String.valueOf(com.getCategoria().toString()));
-            Log.i("Nombre", com.getNombre().toString());
-
             if (com.getCategoria().toString().equals(numCat)) {
                 ComidaList.add(com);
             }
+        }
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+
+        int i = 0;
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(ListaComidas.this);
+        SharedPreferences.Editor editor = prefs.edit();
+
+        while (ComidaList.size() > i) {
+            String nombre = ComidaList.get(i).getNombre();
+            int conta = ComidaList.get(i).getCont();
+            i++;
+
+            if (conta != 0) {
+                Log.i("productoNUEVO", nombre.toString());
+                editor.putString("nombreComida", nombre.toString());
+            }
+            editor.apply();
         }
     }
 }

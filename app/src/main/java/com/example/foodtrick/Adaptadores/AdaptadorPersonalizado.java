@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +12,6 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.foodtrick.ListaComidas;
-import com.example.foodtrick.MainActivity;
 import com.example.foodtrick.Objetos.Comida;
 import com.example.foodtrick.Producto;
 import com.example.foodtrick.R;
@@ -37,12 +34,11 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         TextView txCategoria;
         ImageView imagen;
         ImageButton btnAddCart;
-        int counter = 0;
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+    public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         View fila = convertView;
         final ViewHolder holder;
@@ -81,12 +77,11 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
                                                  @Override
                                                  public void onClick(View view) {
-                                                     Log.i("productoNUEVO", holder.btnAddCart.getBackground().toString());
-                                                     if (holder.counter == 0) {
-                                                         holder.counter++;
+                                                     if (comida.get(position).getCont() == 0) {
+                                                         comida.get(position).setCont(1);
                                                          holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
                                                      } else {
-                                                         holder.counter--;
+                                                         comida.get(position).setCont(0);
                                                          holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
                                                      }
                                                  }

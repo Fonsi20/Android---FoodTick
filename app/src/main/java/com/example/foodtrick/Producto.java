@@ -69,10 +69,6 @@ public class Producto extends AppCompatActivity {
                 pMostrar.setHidratos(cursor.getInt(2));
                 pMostrar.setAzucares(cursor.getInt(3));
                 pMostrar.setGrasas(cursor.getInt(4));
-
-                Log.i("productoNUEVO", String.valueOf(pMostrar.getNombre().toString()));
-                Log.i("productoNUEVO", pMostrar.getCategoria().toString());
-                Log.i("productoNUEVO", String.valueOf(pMostrar.getAzucares()));
             } while (cursor.moveToNext());
         }
 

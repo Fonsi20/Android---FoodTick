@@ -3,15 +3,24 @@ package com.example.foodtrick.Objetos;
 public class Comida {
     private String nombre;
     private String categoria;
-    private int img;
+    private int img, cont;
 
-    public Comida(String nombre, String categoria, int img) {
+    public Comida(String nombre, String categoria, int img, int cont) {
         this.nombre = nombre;
         this.categoria = categoria;
         this.img = img;
+        this.cont = cont;
     }
 
     public Comida() {
+    }
+
+    public int getCont() {
+        return cont;
+    }
+
+    public void setCont(int cont) {
+        this.cont = cont;
     }
 
     public String getNombre() {

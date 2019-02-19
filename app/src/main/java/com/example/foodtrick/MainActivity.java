@@ -171,10 +171,6 @@ public class MainActivity extends AppCompatActivity {
             cat.setNombre(cursor.getString(1));
             cat.setDescripcion(cursor.getString(2));
 
-            Log.i("id", String.valueOf(cat.getId()));
-            Log.i("Nombre", cat.getNombre().toString());
-            Log.i("Descrip", cat.getDescripcion().toString());
-
             CategoriasList.add(cat);
         }
         obtenerLista();
