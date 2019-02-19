@@ -92,6 +92,8 @@ public class ListaComidas extends AppCompatActivity {
             }
         });
 
+        DBComidas.close();
+
     }
 
     private void consultarListaComidas() {

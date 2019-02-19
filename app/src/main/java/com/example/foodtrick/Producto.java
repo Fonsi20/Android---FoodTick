@@ -53,6 +53,7 @@ public class Producto extends AppCompatActivity {
         txtHidratos.setText(String.valueOf(pMostrar.getHidratos()));
         //LLProdu.setBackground(R.drawable.fondoprodudefualt);
 
+        DBComidas.close();
     }
 
     private void consultaComidaProducto() {

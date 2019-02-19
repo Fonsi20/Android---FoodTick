@@ -24,6 +24,7 @@
 
 
         <TextView
+            android:fontFamily="@font/montserrat_bold"
             android:id="@+id/NombreProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -32,11 +33,11 @@
             android:paddingBottom="5dp"
             android:text="Nombre del Alimento"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="18sp"/>
 
 
         <TextView
+            android:fontFamily="@font/montserrat_regular"
             android:id="@+id/CategoriaProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,15 +55,15 @@
             android:background="@drawable/boton_redondo" />
 
         <TextView
+            android:fontFamily="@font/montserrat_bold"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
             android:gravity="start"
-            android:paddingBottom="15dp"
+            android:paddingBottom="12dp"
             android:text="@string/infoNutricional"
             android:textColor="@color/grey"
-            android:textSize="12sp"
-            android:textStyle="bold" />
+            android:textSize="12sp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -82,6 +83,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
                     android:gravity="center"
                     android:paddingTop="0dp"
                     android:paddingBottom="5dp"
@@ -95,6 +97,7 @@
                     android:id="@+id/cantidadCaloricas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
                     android:paddingBottom="15dp"
                     android:text="113"
@@ -113,18 +116,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
                     android:gravity="center"
                     android:paddingTop="0dp"
                     android:paddingBottom="5dp"
                     android:text="Pro"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/cantidadHidratos"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
                     android:text="20.6"
                     android:textColor="@color/black"
@@ -133,6 +137,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
                     android:text="Kcal/100 gr"
                     android:textColor="@color/black"
@@ -150,18 +155,19 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
                     android:gravity="center"
                     android:paddingTop="0dp"
                     android:paddingBottom="5dp"
                     android:text="Grs"
                     android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
+                    android:textSize="15sp" />
 
                 <TextView
                     android:id="@+id/cantidadGrasas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
                     android:text="3.4"
                     android:textColor="@color/black"
@@ -170,71 +176,12 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
                     android:text="g/100 gr"
                     android:textColor="@color/black"
                     android:textSize="8sp" />
 
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingTop="0dp"
-                    android:paddingBottom="5dp"
-                    android:text="HC"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="15dp"
-                    android:text="0"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingTop="0dp"
-                    android:paddingBottom="5dp"
-                    android:text="CG"
-                    android:textColor="@color/black"
-                    android:textSize="15sp"
-                    android:textStyle="bold" />
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:paddingBottom="15dp"
-                    android:text="0"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -248,15 +195,15 @@
 
 
         <TextView
-            android:textColor="@color/white"
-            android:textSize="16sp"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:layout_margin="20dp"
             android:background="@drawable/boton_saludable"
+            android:fontFamily="@font/montserrat_bold"
             android:gravity="center"
             android:text="@string/essaludable"
-            android:textStyle="bold" />
+            android:textColor="@color/white"
+            android:textSize="15sp" />
 
     </LinearLayout>
 
