@@ -15,8 +15,6 @@ import com.example.foodtrick.Objetos.Comida;
 
 import java.util.ArrayList;
 
-import static com.example.foodtrick.MainActivity.listComMarcada;
-
 public class ListaComidas extends AppCompatActivity {
 
     private ListView lv;
@@ -75,14 +73,6 @@ public class ListaComidas extends AppCompatActivity {
                 break;
         }
 
-
-        if (listComMarcada == null || listComMarcada.size() == 0) {
-            listComMarcada = new ArrayList<Comida>();
-            Log.i("productoNUEVO", "Inicializa tambien: "+String.valueOf(listComMarcada.size()));
-        } else {
-            Log.i("productoNUEVO", String.valueOf(listComMarcada.size()));
-        }
-
         consultarListaComidas();
 
         AdaptadorPersonalizado adaptador = new AdaptadorPersonalizado(this, ComidaList);
@@ -103,16 +93,7 @@ public class ListaComidas extends AppCompatActivity {
             com = new Comida();
             com.setCategoria(cursor.getString(4));
             com.setNombre(cursor.getString(0));
-
-            //Comprobamos que le botón de la comida debe estar seleccionado o no
-            if (listComMarcada == null || listComMarcada.size() == 0) {
-            } else {
-                for (int i = 0; listComMarcada.size() > i; i++) {
-                    if (listComMarcada.get(i).getNombre().equals(com.getNombre())) {
-                        com.setCont(1);
-                    }
-                }
-            }
+            com.setCont(cursor.getInt(7));
 
             //Para ver si tiene una imagen para la lista
             int valor = cursor.getInt(6);
@@ -133,17 +114,24 @@ public class ListaComidas extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
+        BDname = "Comidas";
+        BDversion = 1;
+        BDHelper bdhelper = new BDHelper(this, BDname, null, BDversion);
+        DBComidas = bdhelper.getWritableDatabase();
+
         int i = 0;
-        listComMarcada = new ArrayList<Comida>();
+
         do {
             String nombre = ComidaList.get(i).getNombre();
             int conta = ComidaList.get(i).getCont();
 
             if (conta != 0) {
-                listComMarcada.add(ComidaList.get(i));
+                DBComidas.execSQL("UPDATE Alimentos SET menu=1 where nombreA='" + nombre + "'");
             }
 
             i++;
         } while (ComidaList.size() > i);
+
+        DBComidas.close();
     }
 }

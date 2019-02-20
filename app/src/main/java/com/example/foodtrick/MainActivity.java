@@ -25,7 +25,6 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnCat1, btnCat2, btnCat3, btnCat4, btnCat5, btnCat6, btnCat7, btnCat8, btnMenu;
     ArrayList<String> listaCategorias;
     ArrayList<Categoria> CategoriasList;
-    static ArrayList<Comida> listComMarcada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
