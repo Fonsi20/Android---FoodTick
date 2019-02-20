@@ -50,6 +50,46 @@
     <ListView
         android:id="@+id/lvMenu"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@color/md_light_blue_50"
+        android:visibility="gone" />
+
+    <LinearLayout
+        android:id="@+id/loNadaCesta"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/md_light_blue_50"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:background="@drawable/hungry" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="50dp"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="@string/loSiento"
+            android:textColor="@color/black"
+            android:textSize="15dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:fontFamily="@font/montserrat_regular"
+            android:text="@string/loSiento2"
+            android:textColor="@color/black"
+            android:textSize="12dp" />
+
+    </LinearLayout>
 
 </LinearLayout>

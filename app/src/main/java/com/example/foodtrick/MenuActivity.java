@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 
 import com.example.foodtrick.Adaptadores.AdaptadorPersonalizado;
@@ -25,6 +26,7 @@ public class MenuActivity extends AppCompatActivity {
 
     ArrayList<Comida> ComidaList;
     private Button btnVaciarCesta;
+    private LinearLayout loNadaCesta;
 
     @Override
     protected void onCreate(final Bundle savedInstanceState) {
@@ -38,12 +40,19 @@ public class MenuActivity extends AppCompatActivity {
 
         lvMenuC = (ListView) findViewById(R.id.lvMenu);
         btnVaciarCesta = (Button) findViewById(R.id.btnVaciarCesta);
+        loNadaCesta = (LinearLayout) findViewById(R.id.loNadaCesta);
 
         consultarListaComidasMenu();
 
-        AdaptadorPersonalizadoMenu adaptador = new AdaptadorPersonalizadoMenu(this, ComidaList);
-        lvMenuC.setAdapter(adaptador);
-
+        if (ComidaList == null || ComidaList.size() == 0) {
+            loNadaCesta.setVisibility(View.VISIBLE);
+            lvMenuC.setVisibility(View.GONE);
+        } else {
+            loNadaCesta.setVisibility(View.GONE);
+            lvMenuC.setVisibility(View.VISIBLE);
+            AdaptadorPersonalizadoMenu adaptador = new AdaptadorPersonalizadoMenu(this, ComidaList);
+            lvMenuC.setAdapter(adaptador);
+        }
         btnVaciarCesta.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +72,8 @@ public class MenuActivity extends AppCompatActivity {
                 consultarListaComidasMenu();
                 AdaptadorPersonalizadoMenu adaptador2 = new AdaptadorPersonalizadoMenu(MenuActivity.this, ComidaList);
                 lvMenuC.setAdapter(adaptador2);
+                loNadaCesta.setVisibility(View.VISIBLE);
+                lvMenuC.setVisibility(View.GONE);
             }
         });
     }
