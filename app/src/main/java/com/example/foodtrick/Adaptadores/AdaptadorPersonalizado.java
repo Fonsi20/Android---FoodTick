@@ -65,14 +65,8 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         holder.txCategoria.setText("Mas información");
         holder.imagen.setImageResource(comida.get(position).getImg());
         if (comida.get(position).getCont() == 0) {
-            Log.i("productoNUEVO", comida.get(position).getNombre());
-            Log.i("productoNUEVO", String.valueOf(comida.get(position).getCont()));
-            Log.i("productoNUEVO", "LO PONGO EN NEGRO");
             holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
         } else {
-            Log.i("productoNUEVO", comida.get(position).getNombre());
-            Log.i("productoNUEVO", String.valueOf(comida.get(position).getCont()));
-            Log.i("productoNUEVO", "LO PONGO EN VERDE");
             holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
         }
 
@@ -88,7 +82,6 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
                                                  @Override
                                                  public void onClick(View view) {
-                                                     Log.i("productoNUEVO", String.valueOf(comida.get(position).getCont()));
                                                      if (comida.get(position).getCont() == 0) {
                                                          comida.get(position).setCont(1);
                                                          holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);

@@ -75,17 +75,15 @@ public class ListaComidas extends AppCompatActivity {
                 break;
         }
 
+
         if (listComMarcada == null || listComMarcada.size() == 0) {
-            Log.i("productoNUEVO", "Inicializamos la lista ya que está vacia");
             listComMarcada = new ArrayList<Comida>();
+            Log.i("productoNUEVO", "Inicializa tambien: "+String.valueOf(listComMarcada.size()));
         } else {
-            Log.i("productoNUEVO", "La lista tiene algo. Tamaño lista: " + listComMarcada.size());
+            Log.i("productoNUEVO", String.valueOf(listComMarcada.size()));
         }
 
         consultarListaComidas();
-        for (Comida c : ComidaList){
-            Log.i("COSACOMIDA",c.getNombre());
-        }
 
         AdaptadorPersonalizado adaptador = new AdaptadorPersonalizado(this, ComidaList);
         lv.setAdapter(adaptador);
@@ -108,12 +106,9 @@ public class ListaComidas extends AppCompatActivity {
 
             //Comprobamos que le botón de la comida debe estar seleccionado o no
             if (listComMarcada == null || listComMarcada.size() == 0) {
-                Log.i("productoNUEVO", "ERROR: No hay nada en la lista");
             } else {
                 for (int i = 0; listComMarcada.size() > i; i++) {
                     if (listComMarcada.get(i).getNombre().equals(com.getNombre())) {
-                        Log.i("productoNUEVO", "El alimento de mi lista de marcados es:" + listComMarcada.get(i).getNombre());
-                        Log.i("productoNUEVO", "El alimento de mi lista de ALIMENTOS es:" + com.getNombre());
                         com.setCont(1);
                     }
                 }
@@ -140,18 +135,15 @@ public class ListaComidas extends AppCompatActivity {
 
         int i = 0;
         listComMarcada = new ArrayList<Comida>();
-        Log.i("productoNUEVO", "cantidad de comidas en la lista: " + ComidaList.size());
         do {
             String nombre = ComidaList.get(i).getNombre();
             int conta = ComidaList.get(i).getCont();
 
             if (conta != 0) {
-                Log.i("productoNUEVO", nombre.toString());
                 listComMarcada.add(ComidaList.get(i));
             }
 
             i++;
         } while (ComidaList.size() > i);
-        Log.i("productoNUEVO", "cantidad de comidas en la lista de Marcados: " + listComMarcada.size());
     }
 }
