@@ -61,14 +61,17 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         }
 
         fila.setBackgroundColor(context.getResources().getColor(R.color.white));
-
         holder.txNombre.setText(comida.get(position).getNombre());
         holder.txCategoria.setText("Mas información");
         holder.imagen.setImageResource(comida.get(position).getImg());
         if (comida.get(position).getCont() == 0) {
+            Log.i("productoNUEVO", comida.get(position).getNombre());
+            Log.i("productoNUEVO", String.valueOf(comida.get(position).getCont()));
             Log.i("productoNUEVO", "LO PONGO EN NEGRO");
             holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
         } else {
+            Log.i("productoNUEVO", comida.get(position).getNombre());
+            Log.i("productoNUEVO", String.valueOf(comida.get(position).getCont()));
             Log.i("productoNUEVO", "LO PONGO EN VERDE");
             holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
         }

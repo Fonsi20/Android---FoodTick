@@ -83,6 +83,9 @@ public class ListaComidas extends AppCompatActivity {
         }
 
         consultarListaComidas();
+        for (Comida c : ComidaList){
+            Log.i("COSACOMIDA",c.getNombre());
+        }
 
         AdaptadorPersonalizado adaptador = new AdaptadorPersonalizado(this, ComidaList);
         lv.setAdapter(adaptador);
@@ -112,8 +115,6 @@ public class ListaComidas extends AppCompatActivity {
                         Log.i("productoNUEVO", "El alimento de mi lista de marcados es:" + listComMarcada.get(i).getNombre());
                         Log.i("productoNUEVO", "El alimento de mi lista de ALIMENTOS es:" + com.getNombre());
                         com.setCont(1);
-                    } else {
-                        com.setCont(0);
                     }
                 }
             }

@@ -1,6 +1,8 @@
 package com.example.foodtrick.Objetos;
 
-public class Comida {
+import java.io.Serializable;
+
+public class Comida implements Serializable {
     private String nombre;
     private String categoria;
     private int img, cont;
