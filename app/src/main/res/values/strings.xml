@@ -16,4 +16,7 @@
     <string name="infoNutricional">Información Nutricional del Alimento</string>
     <string name="essaludable">ES SALUDABLE</string>
     <string name="vaciarCesta">Vaciar Cesta</string>
+    <string name="menu">Menu</string>
+    <string name="masInfo">Mas Información</string>
+    <string name="cantidad">Por defecto 100g</string>
 </resources>

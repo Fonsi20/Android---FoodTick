@@ -5,19 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:gravity="bottom"
     android:orientation="vertical"
     tools:context=".MenuActivity">
 
-    <ListView
+    <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"></ListView>
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:fontFamily="@font/montserrat_bold"
+        android:text="@string/menu"
+        android:textColor="@color/black"
+        android:textSize="25sp" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_gravity="bottom"
         android:layout_marginLeft="45dp"
+        android:layout_marginTop="10dp"
         android:layout_marginRight="45dp"
         android:layout_marginBottom="10dp"
         android:background="@drawable/boton_redondo"
@@ -30,7 +36,6 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="45dp"
-        android:layout_gravity="bottom"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:layout_marginBottom="25dp"
@@ -40,5 +45,10 @@
         android:text="@string/essaludable"
         android:textColor="@color/white"
         android:textSize="12sp" />
+
+    <ListView
+        android:id="@+id/lvMenu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
 </LinearLayout>

@@ -127,6 +127,8 @@ public class ListaComidas extends AppCompatActivity {
 
             if (conta != 0) {
                 DBComidas.execSQL("UPDATE Alimentos SET menu=1 where nombreA='" + nombre + "'");
+            } else {
+                DBComidas.execSQL("UPDATE Alimentos SET menu=0 where nombreA='" + nombre + "'");
             }
 
             i++;
