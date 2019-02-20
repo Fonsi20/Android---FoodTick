@@ -4,9 +4,13 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ListView;
 
 import com.example.foodtrick.Adaptadores.AdaptadorPersonalizado;
+import com.example.foodtrick.Adaptadores.AdaptadorPersonalizadoMenu;
 import com.example.foodtrick.BBDD.BDHelper;
 import com.example.foodtrick.Objetos.Comida;
 
@@ -20,9 +24,10 @@ public class MenuActivity extends AppCompatActivity {
     private ListView lvMenuC;
 
     ArrayList<Comida> ComidaList;
+    private Button btnVaciarCesta;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
@@ -32,13 +37,34 @@ public class MenuActivity extends AppCompatActivity {
         DBComidas = bdhelper.getWritableDatabase();
 
         lvMenuC = (ListView) findViewById(R.id.lvMenu);
+        btnVaciarCesta = (Button) findViewById(R.id.btnVaciarCesta);
 
         consultarListaComidasMenu();
 
-        AdaptadorPersonalizado adaptador = new AdaptadorPersonalizado(this, ComidaList);
+        AdaptadorPersonalizadoMenu adaptador = new AdaptadorPersonalizadoMenu(this, ComidaList);
         lvMenuC.setAdapter(adaptador);
 
+        btnVaciarCesta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int i = 0;
 
+                while (ComidaList.size() > i) {
+                    String nombre = ComidaList.get(i).getNombre();
+                    int conta = ComidaList.get(i).getCont();
+
+                    if (conta != 0) {
+                        Log.i("productoNUEVO", nombre);
+                        DBComidas.execSQL("UPDATE Alimentos SET menu=0 where nombreA='" + nombre + "'");
+                    }
+                    i++;
+                }
+                lvMenuC.setAdapter(null);
+                consultarListaComidasMenu();
+                AdaptadorPersonalizadoMenu adaptador2 = new AdaptadorPersonalizadoMenu(MenuActivity.this, ComidaList);
+                lvMenuC.setAdapter(adaptador2);
+            }
+        });
     }
 
     private void consultarListaComidasMenu() {
@@ -81,7 +107,7 @@ public class MenuActivity extends AppCompatActivity {
 
         int i = 0;
 
-        do {
+        while (ComidaList.size() > i) {
             String nombre = ComidaList.get(i).getNombre();
             int conta = ComidaList.get(i).getCont();
 
@@ -92,7 +118,7 @@ public class MenuActivity extends AppCompatActivity {
             }
 
             i++;
-        } while (ComidaList.size() > i);
+        }
 
         DBComidas.close();
     }

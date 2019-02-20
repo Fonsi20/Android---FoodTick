@@ -9,7 +9,7 @@
     android:layout_marginBottom="2dp"
     android:background="@color/whiteBreak"
     android:orientation="horizontal"
-    tools:context=".ListaComidas">
+    tools:context=".MenuActivity">
 
     <ImageView
         android:id="@+id/imgIcon"
@@ -40,19 +40,18 @@
 
         <EditText
             android:id="@+id/txCategoria"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp"
+            android:backgroundTint="@color/green"
             android:fontFamily="@font/montserrat_bold"
-            android:paddingLeft="30dp"
-            android:paddingTop="2dp"
-            android:paddingRight="30dp"
-            android:paddingBottom="2dp"
-            android:textColorHint="@color/md_blue_700"
             android:hint="@string/cantidad"
+            android:inputType="numberDecimal"
+            android:paddingTop="2dp"
+            android:paddingBottom="2dp"
             android:textColor="@color/black"
-            android:backgroundTint="@color/md_blue_700"
-            android:textSize="10sp" />
+            android:textColorHint="@color/green"
+            android:textSize="12sp" />
 
     </LinearLayout>
 

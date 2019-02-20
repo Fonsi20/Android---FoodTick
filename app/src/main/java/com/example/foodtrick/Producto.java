@@ -51,21 +51,29 @@ public class Producto extends AppCompatActivity {
         txtGrasas.setText(String.valueOf(pMostrar.getGrasas()));
         txtAzucares.setText(String.valueOf(pMostrar.getAzucares()));
         txtHidratos.setText(String.valueOf(pMostrar.getHidratos()));
-        //LLProdu.setBackground(R.drawable.fondoprodudefualt);
+        LLProdu.setBackgroundResource(pMostrar.getImg());
 
         DBComidas.close();
     }
 
     private void consultaComidaProducto() {
 
-        Cursor cursor = DBComidas.rawQuery("select a.nombreA,c.nombreC,a.hidratos,a.azucar,a.grasa from Alimentos as a inner join Categorias as c on a.cat=c.id where a.nombreA='" + nombreP.toString() + "'", null);
+        Cursor cursor = DBComidas.rawQuery("select a.nombreA,c.nombreC,a.hidratos,a.azucar,a.grasa,a.imgpro from Alimentos as a inner join Categorias as c on a.cat=c.id where a.nombreA='" + nombreP.toString() + "'", null);
 
         if (cursor.moveToFirst()) {
             do {
                 pMostrar = new productoMostrar();
                 pMostrar.setNombre(cursor.getString(0));
                 pMostrar.setCategoria(cursor.getString(1));
-                pMostrar.setImg(R.drawable.fondoprodudefualt);
+
+                //Para ver si tiene una imagen para la lista
+                int valor = cursor.getInt(5);
+                if (valor == 0) {
+                    pMostrar.setImg(R.drawable.fondoprodudefualt);
+                } else {
+                    pMostrar.setImg(cursor.getInt(5));
+                }
+
                 pMostrar.setHidratos(cursor.getInt(2));
                 pMostrar.setAzucares(cursor.getInt(3));
                 pMostrar.setGrasas(cursor.getInt(4));

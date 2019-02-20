@@ -18,13 +18,13 @@ import com.example.foodtrick.R;
 
 import java.util.ArrayList;
 
-public class AdaptadorPersonalizado extends ArrayAdapter {
+public class AdaptadorPersonalizadoMenu extends ArrayAdapter {
 
     private Activity context;
     private ArrayList<Comida> comida;
 
-    public AdaptadorPersonalizado(Activity context, ArrayList<Comida> comida) {
-        super(context, R.layout.item_lista, comida);
+    public AdaptadorPersonalizadoMenu(Activity context, ArrayList<Comida> comida) {
+        super(context, R.layout.item_menu, comida);
         this.context = context;
         this.comida = comida;
     }
@@ -41,14 +41,14 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
     public View getView(final int position, @Nullable View convertView, @NonNull ViewGroup parent) {
 
         View fila = convertView;
-        final ViewHolder holder;
+        final AdaptadorPersonalizadoMenu.ViewHolder holder;
 
         if (fila == null) {
             LayoutInflater layoutInflater = context.getLayoutInflater();
 
-            fila = layoutInflater.inflate(R.layout.item_lista, null);
+            fila = layoutInflater.inflate(R.layout.item_menu, null);
 
-            holder = new ViewHolder();
+            holder = new AdaptadorPersonalizadoMenu.ViewHolder();
 
             holder.txNombre = (TextView) fila.findViewById(R.id.txNombre);
             holder.txCategoria = (TextView) fila.findViewById(R.id.txCategoria);
@@ -57,7 +57,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
 
             fila.setTag(holder);
         } else {
-            holder = (ViewHolder) fila.getTag();
+            holder = (AdaptadorPersonalizadoMenu.ViewHolder) fila.getTag();
         }
 
         fila.setBackgroundColor(context.getResources().getColor(R.color.white));
@@ -69,7 +69,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
             holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
         }
 
-        holder.txCategoria.setOnClickListener(new View.OnClickListener() {
+        holder.txNombre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, Producto.class);

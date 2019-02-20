@@ -45,7 +45,7 @@ public class BDHelper extends SQLiteOpenHelper {
                 "(7,'Postres','THE CAKE IS A LIE!.')," +
                 "(8,'Pasta','Unos buenos rigoletis di el doctore hecter')");
         sqLiteDatabase.execSQL("INSERT INTO Alimentos values ('Lomo Embuchado',14,245,75,1,'0','0','0')," +
-                "('Solomillo Mercadona',145,89,32,1,'0','" + R.drawable.carne + "','0')," +
+                "('Solomillo Mercadona',145,89,32,1,'"+ R.drawable.carne_grande + "','" + R.drawable.carne + "','0')," +
                 "('Costilla de Ternera',105,21,455,1,'0','0','0')," +
                 "('Agua',0,0,0,4,'0','0','0')," +
                 "('Leche Asturian Desnatada',36,45,10,5,'0','0','0')," +
