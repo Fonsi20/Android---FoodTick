@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:paddingTop="10dp"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white">
+    android:background="@color/fondoPrincipal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -55,12 +56,6 @@
                         android:text="@string/nombreapp2"
                         android:textColor="@color/black" />
 
-                    <ImageButton
-                        android:id="@+id/btnMenu"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginRight="20dp"
-                        android:background="@drawable/menu" />
                 </LinearLayout>
 
                 <TextView
@@ -111,6 +106,31 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingBottom="10dp"
+                    android:text="Menú"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/btnMenu"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/menu" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
                     android:id="@+id/btn1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -123,8 +143,7 @@
                     android:id="@+id/btncate1"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/boton_redondo"
-                    android:src="@drawable/carne" />
+                    android:background="@drawable/steak" />
 
             </LinearLayout>
 
@@ -150,10 +169,19 @@
                     android:id="@+id/btncate2"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/boton_redondo"
-                    android:src="@drawable/donut" />
+                    android:background="@drawable/fish" />
 
             </LinearLayout>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -177,21 +205,9 @@
                     android:id="@+id/btncate3"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/boton_redondo"
-                    android:src="@drawable/hortalizas" />
+                    android:background="@drawable/fruits" />
 
             </LinearLayout>
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:gravity="center"
-            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -215,8 +231,7 @@
                     android:id="@+id/btncate4"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/boton_redondo"
-                    android:src="@drawable/saugar" />
+                    android:background="@drawable/cocktail" />
 
             </LinearLayout>
 
@@ -242,35 +257,7 @@
                     android:id="@+id/btncate5"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/boton_redondo"
-                    android:src="@drawable/procesados" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/btn6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/montserrat_bold"
-                    android:paddingBottom="10dp"
-                    android:textColor="@color/black"
-                    android:textSize="14sp" />
-
-                <ImageButton
-                    android:id="@+id/btncate6"
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:background="@drawable/boton_redondo"
-                    android:src="@drawable/pescados" />
+                    android:background="@drawable/dinner"/>
 
             </LinearLayout>
 
@@ -294,6 +281,32 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/btn6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:paddingBottom="10dp"
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <ImageButton
+                    android:id="@+id/btncate6"
+                    android:layout_width="70dp"
+                    android:layout_height="70dp"
+                    android:background="@drawable/porridge" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
                     android:id="@+id/btn7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -306,8 +319,7 @@
                     android:id="@+id/btncate7"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/boton_redondo"
-                    android:src="@drawable/pasta" />
+                    android:background="@drawable/cupcake" />
 
             </LinearLayout>
 
@@ -334,8 +346,7 @@
                     android:id="@+id/btncate8"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/boton_redondo"
-                    android:src="@drawable/drink" />
+                    android:background="@drawable/rice" />
 
             </LinearLayout>
         </LinearLayout>

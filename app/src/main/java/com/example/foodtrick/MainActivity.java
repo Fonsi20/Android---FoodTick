@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.example.foodtrick.BBDD.BDHelper;
 import com.example.foodtrick.Objetos.Categoria;
+import com.example.foodtrick.Objetos.Comida;
 
 import java.util.ArrayList;
 
@@ -24,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton btnCat1, btnCat2, btnCat3, btnCat4, btnCat5, btnCat6, btnCat7, btnCat8, btnMenu;
     ArrayList<String> listaCategorias;
     ArrayList<Categoria> CategoriasList;
+    static ArrayList<Comida> listComMarcada;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

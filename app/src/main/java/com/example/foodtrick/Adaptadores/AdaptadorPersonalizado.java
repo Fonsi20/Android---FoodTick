@@ -66,8 +66,10 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         holder.txCategoria.setText("Mas información");
         holder.imagen.setImageResource(comida.get(position).getImg());
         if (comida.get(position).getCont() == 0) {
+            Log.i("productoNUEVO", "LO PONGO EN NEGRO");
             holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
         } else {
+            Log.i("productoNUEVO", "LO PONGO EN VERDE");
             holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
         }
 
@@ -87,7 +89,7 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
                                                      if (comida.get(position).getCont() == 0) {
                                                          comida.get(position).setCont(1);
                                                          holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
-                                                     }else  if (comida.get(position).getCont() == 1) {
+                                                     } else if (comida.get(position).getCont() == 1) {
                                                          comida.get(position).setCont(0);
                                                          holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
                                                      }

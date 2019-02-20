@@ -15,6 +15,8 @@ import com.example.foodtrick.Objetos.Comida;
 
 import java.util.ArrayList;
 
+import static com.example.foodtrick.MainActivity.listComMarcada;
+
 public class ListaComidas extends AppCompatActivity {
 
     private ListView lv;
@@ -23,7 +25,6 @@ public class ListaComidas extends AppCompatActivity {
     private String Categoria;
     private String numCat;
     ArrayList<Comida> ComidaList;
-    ArrayList<Comida> listComMarcada;
 
     private String BDname;
     private int BDversion;
@@ -74,6 +75,13 @@ public class ListaComidas extends AppCompatActivity {
                 break;
         }
 
+        if (listComMarcada == null || listComMarcada.size() == 0) {
+            Log.i("productoNUEVO", "Inicializamos la lista ya que está vacia");
+            listComMarcada = new ArrayList<Comida>();
+        } else {
+            Log.i("productoNUEVO", "La lista tiene algo. Tamaño lista: " + listComMarcada.size());
+        }
+
         consultarListaComidas();
 
         AdaptadorPersonalizado adaptador = new AdaptadorPersonalizado(this, ComidaList);
@@ -94,13 +102,15 @@ public class ListaComidas extends AppCompatActivity {
             com = new Comida();
             com.setCategoria(cursor.getString(4));
             com.setNombre(cursor.getString(0));
+
+            //Comprobamos que le botón de la comida debe estar seleccionado o no
             if (listComMarcada == null || listComMarcada.size() == 0) {
                 Log.i("productoNUEVO", "ERROR: No hay nada en la lista");
             } else {
-                Log.i("productoNUEVO", "Tamaño lista: " + listComMarcada.size());
                 for (int i = 0; listComMarcada.size() > i; i++) {
-                    Log.i("productoNUEVO", "entraaaaaaaaaa");
                     if (listComMarcada.get(i).getNombre().equals(com.getNombre())) {
+                        Log.i("productoNUEVO", "El alimento de mi lista de marcados es:" + listComMarcada.get(i).getNombre());
+                        Log.i("productoNUEVO", "El alimento de mi lista de ALIMENTOS es:" + com.getNombre());
                         com.setCont(1);
                     } else {
                         com.setCont(0);
@@ -108,6 +118,7 @@ public class ListaComidas extends AppCompatActivity {
                 }
             }
 
+            //Para ver si tiene una imagen para la lista
             int valor = cursor.getInt(6);
             if (valor == 0) {
                 com.setImg(R.drawable.foodtick360);
@@ -115,6 +126,7 @@ public class ListaComidas extends AppCompatActivity {
                 com.setImg(cursor.getInt(6));
             }
 
+            //Comprobamos que el proyecto pertenece a la categoría
             if (com.getCategoria().toString().equals(numCat)) {
                 ComidaList.add(com);
             }
@@ -128,16 +140,17 @@ public class ListaComidas extends AppCompatActivity {
         int i = 0;
         listComMarcada = new ArrayList<Comida>();
         Log.i("productoNUEVO", "cantidad de comidas en la lista: " + ComidaList.size());
-        while (ComidaList.size() > i) {
+        do {
             String nombre = ComidaList.get(i).getNombre();
             int conta = ComidaList.get(i).getCont();
-            i++;
 
             if (conta != 0) {
                 Log.i("productoNUEVO", nombre.toString());
                 listComMarcada.add(ComidaList.get(i));
             }
-        }
+
+            i++;
+        } while (ComidaList.size() > i);
         Log.i("productoNUEVO", "cantidad de comidas en la lista de Marcados: " + listComMarcada.size());
     }
 }

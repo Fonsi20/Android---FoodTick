@@ -8,7 +8,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".MenuActivity"></activity>
+        <activity
+            android:name=".MenuActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".Producto"
             android:screenOrientation="portrait" />

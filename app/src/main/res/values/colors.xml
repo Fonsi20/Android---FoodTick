@@ -11,4 +11,5 @@
     <color name="grey">#bebebe</color>
     <color name="green">#62b068</color>
     <color name="blue">#457DDB</color>
+    <color name='fondoPrincipal'>#e9ecf3</color>
 </resources>
