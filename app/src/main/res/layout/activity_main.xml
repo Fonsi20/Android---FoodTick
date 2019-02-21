@@ -109,7 +109,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="10dp"
-                    android:text="Menú"
+                    android:text="@string/menu"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 

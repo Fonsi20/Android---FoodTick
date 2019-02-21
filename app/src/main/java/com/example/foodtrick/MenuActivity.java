@@ -1,5 +1,6 @@
 package com.example.foodtrick;
 
+import android.app.AlertDialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -10,7 +11,6 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
-import com.example.foodtrick.Adaptadores.AdaptadorPersonalizado;
 import com.example.foodtrick.Adaptadores.AdaptadorPersonalizadoMenu;
 import com.example.foodtrick.BBDD.BDHelper;
 import com.example.foodtrick.Objetos.Comida;
@@ -25,7 +25,7 @@ public class MenuActivity extends AppCompatActivity {
     private ListView lvMenuC;
 
     ArrayList<Comida> ComidaList;
-    private Button btnVaciarCesta;
+    private Button btnVaciarCesta, btnCalcular;
     private LinearLayout loNadaCesta;
 
     @Override
@@ -40,6 +40,7 @@ public class MenuActivity extends AppCompatActivity {
 
         lvMenuC = (ListView) findViewById(R.id.lvMenu);
         btnVaciarCesta = (Button) findViewById(R.id.btnVaciarCesta);
+        btnCalcular = (Button) findViewById(R.id.btnCalcularSaludable);
         loNadaCesta = (LinearLayout) findViewById(R.id.loNadaCesta);
 
         consultarListaComidasMenu();
@@ -74,6 +75,27 @@ public class MenuActivity extends AppCompatActivity {
                 lvMenuC.setAdapter(adaptador2);
                 loNadaCesta.setVisibility(View.VISIBLE);
                 lvMenuC.setVisibility(View.GONE);
+            }
+        });
+
+        btnCalcular.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                if (ComidaList.size() == 0 || ComidaList == null) {
+
+                    AlertDialog.Builder ventana = new AlertDialog.Builder(MenuActivity.this);
+                    ventana.setTitle(R.string.titulodialog);
+                    ventana.setMessage(R.string.textodialog);
+                    ventana.setIcon(R.drawable.foodtick);
+                    ventana.show();
+
+                } else {
+
+                    //Aquí sucede la mágia de los calculos para mucha comida.
+
+                }
+
             }
         });
     }

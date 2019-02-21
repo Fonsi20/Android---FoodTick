@@ -34,17 +34,18 @@
         android:textColor="@color/black"
         android:textSize="12sp" />
 
-    <TextView
+    <Button
+        android:id="@+id/btnCalcularSaludable"
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_marginLeft="45dp"
         android:layout_marginRight="45dp"
         android:layout_marginBottom="25dp"
-        android:background="@drawable/boton_saludable"
+        android:background="@drawable/boton_redondo"
         android:fontFamily="@font/montserrat_bold"
         android:gravity="center"
-        android:text="@string/essaludable"
-        android:textColor="@color/white"
+        android:text="@string/esbueno"
+        android:textColor="@color/black"
         android:textSize="12sp" />
 
     <ListView

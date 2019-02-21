@@ -17,8 +17,9 @@ public class Producto extends AppCompatActivity {
     private String BDname;
     private int BDversion;
     private SQLiteDatabase DBComidas;
+    int contadorSaludable = 0;
 
-    private TextView txtNombreP, txtNombreCat, txtGrasas, txtAzucares, txtHidratos;
+    private TextView txtNombreP, txtNombreCat, txtGrasas, txtAzucares, txtHidratos, txSalu;
     private productoMostrar pMostrar;
     private String nombreP;
     private LinearLayout LLProdu;
@@ -42,6 +43,7 @@ public class Producto extends AppCompatActivity {
         txtAzucares = findViewById(R.id.cantidadCaloricas);
         txtHidratos = findViewById(R.id.cantidadHidratos);
         txtGrasas = findViewById(R.id.cantidadGrasas);
+        txSalu = findViewById(R.id.txSaludable);
         LLProdu = findViewById(R.id.LLProducto);
 
         consultaComidaProducto();
@@ -52,6 +54,33 @@ public class Producto extends AppCompatActivity {
         txtAzucares.setText(String.valueOf(pMostrar.getAzucares()));
         txtHidratos.setText(String.valueOf(pMostrar.getHidratos()));
         LLProdu.setBackgroundResource(pMostrar.getImg());
+
+        if (pMostrar.getGrasas() >= 400) {
+            contadorSaludable++;
+        }
+        if (pMostrar.getHidratos() >= 200) {
+            contadorSaludable++;
+        }
+        if (pMostrar.getAzucares() >= 200) {
+            contadorSaludable++;
+        }
+
+        if (pMostrar.getCategoria().equals("Frutas") || pMostrar.getCategoria().equals("Hortalizas")) {
+            txSalu.setText(R.string.essaludable);
+            txSalu.setBackgroundResource(R.drawable.boton_saludable);
+        } else {
+            if (contadorSaludable >= 1 && contadorSaludable <= 2) {
+                txSalu.setText(R.string.tencuidado);
+                txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
+            } else if (contadorSaludable == 3) {
+                txSalu.setText(R.string.noessaludable);
+                txSalu.setBackgroundResource(R.drawable.boton_nosaludable);
+
+            } else if (contadorSaludable == 0) {
+                txSalu.setText(R.string.essaludable);
+                txSalu.setBackgroundResource(R.drawable.boton_saludable);
+            }
+        }
 
         DBComidas.close();
     }

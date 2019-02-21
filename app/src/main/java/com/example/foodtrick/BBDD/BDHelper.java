@@ -22,8 +22,8 @@ public class BDHelper extends SQLiteOpenHelper {
     static final String columna10 = "imgpro";
     static final String columna11 = "menu";
 
-    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " INTEGER(30), " + columna6 + " INTEGER(30), " + columna7 + " INTEGER(30), " + columna8 + " INTEGER, " + columna10 + " BLOB," + columna9 + " BLOB," + columna11 + " INTEGER, FOREIGN KEY (" + columna8 + ") REFERENCES Categorias(" + columna1 + "))";
     String SQLCrearCat = "CREATE TABLE IF NOT EXISTS " + tabla1 + "(" + columna1 + " INTEGER PRIMARY KEY, " + columna2 + " VARCHAR(30), " + columna3 + " VARCHAR(300))";
+    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " INTEGER(30), " + columna6 + " INTEGER(30), " + columna7 + " INTEGER(30), " + columna8 + " INTEGER, " + columna10 + " BLOB," + columna9 + " BLOB," + columna11 + " INTEGER, FOREIGN KEY (" + columna8 + ") REFERENCES Categorias(" + columna1 + "))";
 
     String SQLDeleteAli = "DROP TABLE IF EXISTS " + tabla2;
     String SQLDeleteCat = "DROP TABLE IF EXISTS " + tabla1;
@@ -53,17 +53,17 @@ public class BDHelper extends SQLiteOpenHelper {
                 "('Manzana Golden',0,0,0,6,'0','0','0')," +
                 "('Platano de Canarias',20,0,0,6,'0','0','0')," +
                 "('Naranja Valenciana',0,40,0,6,'0','0','0')," +
-                "('Kiwi',0,0,0,6,'0','0','0')," +
+                "('Kiwi',1254,8562,5000,6,'0','0','0')," +
                 "('Vino Rioja',40,25,99,4,'0','0','0')," +
                 "('Nestea',200,10,45,4,'0','0','0')," +
                 "('Crema Cataalana',740,620,205,7,'0','0','0')," +
                 "('Donut',740,620,205,7,'0','0','0')," +
-                "('Pastel de Zanahoria',740,620,205,7,'0','0','0')," +
+                "('Pastel de Zanahoria',940,920,905,7,'0','0','0')," +
                 "('Calabazin',70,60,5,3,'0','0','0')," +
                 "('Pastel de Calabaza',740,620,205,7,'0','0','0')," +
                 "('Filloas',740,620,205,7,'0','0','0')," +
-                "('Bizcocho',740,620,205,7,'0','0','0')," +
-                "('Gelatina',740,620,205,7,'0','0','0')," +
+                "('Bizcocho',70,65,29,7,'0','0','0')," +
+                "('Gelatina',40,20,5,7,'0','0','0')," +
                 "('Helado Magnum',740,620,205,7,'0','0','0')," +
                 "('Coca-Cola',354,200,100,4,'0','0','0')," +
                 "('Estrella Galicia',87,60,19,4,'0','0','0')," +
