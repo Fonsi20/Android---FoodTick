@@ -81,13 +81,7 @@ public class AdaptadorPersonalizadoMenu extends ArrayAdapter {
         holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
                                                  @Override
                                                  public void onClick(View view) {
-                                                     if (comida.get(position).getCont() == 0) {
-                                                         comida.get(position).setCont(1);
-                                                         holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop_green);
-                                                     } else if (comida.get(position).getCont() == 1) {
-                                                         comida.get(position).setCont(0);
-                                                         holder.btnAddCart.setBackgroundResource(R.drawable.cart_shop);
-                                                     }
+                                                     remove(comida.get(position));
                                                  }
                                              }
         );

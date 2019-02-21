@@ -41,10 +41,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
-        BDname = "Comidas";
-        BDversion = 1;
-        BDHelper bdhelper = new BDHelper(this, BDname, null, BDversion);
-        DBComidas = bdhelper.getWritableDatabase();
+        abrirBBDD();
 
         lvMenuC = (ListView) findViewById(R.id.lvMenu);
         btnVaciarCesta = (Button) findViewById(R.id.btnVaciarCesta);
@@ -67,6 +64,7 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 int i = 0;
+                abrirBBDD();
 
                 while (ComidaList.size() > i) {
                     String nombre = ComidaList.get(i).getNombre();
@@ -84,7 +82,7 @@ public class MenuActivity extends AppCompatActivity {
                 lvMenuC.setAdapter(adaptador2);
                 loNadaCesta.setVisibility(View.VISIBLE);
                 lvMenuC.setVisibility(View.GONE);
-                btnCalcular.setTextColor(R.color.black);
+                btnCalcular.setTextColor(getResources().getColor(R.color.black));
                 btnCalcular.setText(R.string.esbueno);
                 btnCalcular.setBackgroundResource(R.drawable.boton_redondo);
 
@@ -130,15 +128,15 @@ public class MenuActivity extends AppCompatActivity {
                     }
 
                     if (contadorSaludable >= 1 && contadorSaludable <= 2) {
-                        btnCalcular.setTextColor(R.color.white);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
                         btnCalcular.setText(R.string.tencuidado);
                         btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
                     } else if (contadorSaludable == 3) {
-                        btnCalcular.setTextColor(R.color.white);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
                         btnCalcular.setText(R.string.noessaludable);
                         btnCalcular.setBackgroundResource(R.drawable.boton_nosaludable);
                     } else if (contadorSaludable == 0) {
-                        btnCalcular.setTextColor(R.color.white);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
                         btnCalcular.setText(R.string.essaludable);
                         btnCalcular.setBackgroundResource(R.drawable.boton_saludable);
                     }
@@ -147,6 +145,13 @@ public class MenuActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void abrirBBDD() {
+        BDname = "Comidas";
+        BDversion = 1;
+        BDHelper bdhelper = new BDHelper(this, BDname, null, BDversion);
+        DBComidas = bdhelper.getWritableDatabase();
     }
 
     private void consultarListaComidaMenuDatos() {
@@ -214,12 +219,11 @@ public class MenuActivity extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
 
-        BDname = "Comidas";
-        BDversion = 1;
-        BDHelper bdhelper = new BDHelper(this, BDname, null, BDversion);
-        DBComidas = bdhelper.getWritableDatabase();
+        abrirBBDD();
 
         int i = 0;
+
+        consultarListaComidasMenu();
 
         while (ComidaList.size() > i) {
             String nombre = ComidaList.get(i).getNombre();
