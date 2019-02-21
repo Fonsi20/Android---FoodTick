@@ -1,5 +1,6 @@
 package com.example.foodtrick;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -14,6 +15,7 @@ import android.widget.ListView;
 import com.example.foodtrick.Adaptadores.AdaptadorPersonalizadoMenu;
 import com.example.foodtrick.BBDD.BDHelper;
 import com.example.foodtrick.Objetos.Comida;
+import com.example.foodtrick.Objetos.productoMostrar;
 
 import java.util.ArrayList;
 
@@ -25,10 +27,16 @@ public class MenuActivity extends AppCompatActivity {
     private ListView lvMenuC;
 
     ArrayList<Comida> ComidaList;
+    ArrayList<productoMostrar> pMostrar;
     private Button btnVaciarCesta, btnCalcular;
     private LinearLayout loNadaCesta;
+    private int contadorSaludable = 0;
+    private float totalAzucar = 0f;
+    private float totalHidratos = 0f;
+    private float totalGrasas = 0f;
 
     @Override
+
     protected void onCreate(final Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
@@ -55,6 +63,7 @@ public class MenuActivity extends AppCompatActivity {
             lvMenuC.setAdapter(adaptador);
         }
         btnVaciarCesta.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
                 int i = 0;
@@ -75,10 +84,15 @@ public class MenuActivity extends AppCompatActivity {
                 lvMenuC.setAdapter(adaptador2);
                 loNadaCesta.setVisibility(View.VISIBLE);
                 lvMenuC.setVisibility(View.GONE);
+                btnCalcular.setTextColor(R.color.black);
+                btnCalcular.setText(R.string.esbueno);
+                btnCalcular.setBackgroundResource(R.drawable.boton_redondo);
+
             }
         });
 
         btnCalcular.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
 
@@ -92,12 +106,79 @@ public class MenuActivity extends AppCompatActivity {
 
                 } else {
 
+                    consultarListaComidaMenuDatos();
+
                     //Aquí sucede la mágia de los calculos para mucha comida.
+                    //El codigo que voy a poner aquí solo sirve para el valor defectivo de 100g, aún no compruebo que los ED estén vacios o no.
+
+                    for (productoMostrar com : pMostrar) {
+                        if (!com.getCategoria().equals("Frutas") || !com.getCategoria().equals("Hortalizas")) {
+                            totalAzucar += com.getAzucares();
+                            totalGrasas += com.getGrasas();
+                            totalHidratos += com.getHidratos();
+                        }
+                    }
+
+                    if (totalGrasas >= 400) {
+                        contadorSaludable++;
+                    }
+                    if (totalHidratos >= 200) {
+                        contadorSaludable++;
+                    }
+                    if (totalAzucar >= 200) {
+                        contadorSaludable++;
+                    }
+
+                    if (contadorSaludable >= 1 && contadorSaludable <= 2) {
+                        btnCalcular.setTextColor(R.color.white);
+                        btnCalcular.setText(R.string.tencuidado);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
+                    } else if (contadorSaludable == 3) {
+                        btnCalcular.setTextColor(R.color.white);
+                        btnCalcular.setText(R.string.noessaludable);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_nosaludable);
+                    } else if (contadorSaludable == 0) {
+                        btnCalcular.setTextColor(R.color.white);
+                        btnCalcular.setText(R.string.essaludable);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_saludable);
+                    }
 
                 }
 
             }
         });
+    }
+
+    private void consultarListaComidaMenuDatos() {
+
+        productoMostrar proCom = null;
+        pMostrar = new ArrayList<productoMostrar>();
+
+        Cursor cursor = DBComidas.rawQuery("select a.nombreA,c.nombreC,a.hidratos,a.azucar,a.grasa,a.imgpro from Alimentos as a inner join Categorias as c on a.cat=c.id where a.menu=1", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                proCom = new productoMostrar();
+                proCom.setNombre(cursor.getString(0));
+                proCom.setCategoria(cursor.getString(1));
+
+                //Para ver si tiene una imagen para la lista
+                int valor = cursor.getInt(5);
+                if (valor == 0) {
+                    proCom.setImg(R.drawable.fondoprodudefualt);
+                } else {
+                    proCom.setImg(cursor.getInt(5));
+                }
+
+                proCom.setHidratos(cursor.getInt(2));
+                proCom.setAzucares(cursor.getInt(3));
+                proCom.setGrasas(cursor.getInt(4));
+
+                pMostrar.add(proCom);
+
+            } while (cursor.moveToNext());
+        }
+
     }
 
     private void consultarListaComidasMenu() {
