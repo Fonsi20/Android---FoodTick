@@ -78,6 +78,15 @@ public class AdaptadorPersonalizadoMenu extends ArrayAdapter {
             }
         });
 
+        holder.imagen.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, Producto.class);
+                i.putExtra("NombreDelProducto", holder.txNombre.getText().toString());
+                context.startActivity(i);
+            }
+        });
+
         holder.btnAddCart.setOnClickListener(new View.OnClickListener() {
                                                  @Override
                                                  public void onClick(View view) {

@@ -8,7 +8,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -113,8 +115,41 @@ public class MenuActivity extends AppCompatActivity {
 
                     consultarListaComidaMenuDatos();
 
-                    //Aquí sucede la mágia de los calculos para mucha comida.
-                    //El codigo que voy a poner aquí solo sirve para el valor defectivo de 100g, aún no compruebo que los ED estén vacios o no.
+                    int count = lvMenuC.getAdapter().getCount();
+
+                    for (int i = 0; i < count; i++) {
+                        ViewGroup row = (ViewGroup) lvMenuC.getChildAt(i);
+                        EditText edValor = (EditText) row.findViewById(R.id.txCategoria);
+                        //  Get your controls from this ViewGroup and perform your task on them =)
+
+                        if (!edValor.getText().toString().equals("")) {
+                            Log.i("productoNUEVO", "Valor que escribí: " + edValor.getText().toString());
+
+                            float azucar = pMostrar.get(i).getAzucares();
+                            float grasas = pMostrar.get(i).getGrasas();
+                            float hidratos = pMostrar.get(i).getHidratos();
+
+                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getAzucares());
+                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getGrasas());
+                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getHidratos());
+
+                            Log.i("productoNUEVO", "----------------------------------------");
+
+
+                            azucar = (Float.parseFloat(edValor.getText().toString()) * azucar) / 100;
+                            grasas = (Float.parseFloat(edValor.getText().toString()) * grasas) / 100;
+                            hidratos = (Float.parseFloat(edValor.getText().toString()) * hidratos) / 100;
+
+                            pMostrar.get(i).setAzucares(azucar);
+                            pMostrar.get(i).setGrasas(grasas);
+                            pMostrar.get(i).setHidratos(hidratos);
+                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getAzucares());
+                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getGrasas());
+                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getHidratos());
+
+                        }
+
+                    }
 
                     for (productoMostrar com : pMostrar) {
                         if (!com.getCategoria().equals("Frutas")) {
@@ -154,10 +189,10 @@ public class MenuActivity extends AppCompatActivity {
                         btnCalcular.setText(R.string.essaludable);
                         btnCalcular.setBackgroundResource(R.drawable.boton_saludable);
                     }
-
                 }
-
             }
+
+
         });
     }
 

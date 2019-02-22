@@ -23,7 +23,7 @@ public class BDHelper extends SQLiteOpenHelper {
     static final String columna11 = "menu";
 
     String SQLCrearCat = "CREATE TABLE IF NOT EXISTS " + tabla1 + "(" + columna1 + " INTEGER PRIMARY KEY, " + columna2 + " VARCHAR(30), " + columna3 + " VARCHAR(300))";
-    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " INTEGER(30), " + columna6 + " INTEGER(30), " + columna7 + " INTEGER(30), " + columna8 + " INTEGER, " + columna10 + " BLOB," + columna9 + " BLOB," + columna11 + " INTEGER, FOREIGN KEY (" + columna8 + ") REFERENCES Categorias(" + columna1 + "))";
+    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " FLOAT(30), " + columna6 + " FLOAT(30), " + columna7 + " FLOAT(30), " + columna8 + " INTEGER, " + columna10 + " BLOB," + columna9 + " BLOB," + columna11 + " INTEGER, FOREIGN KEY (" + columna8 + ") REFERENCES Categorias(" + columna1 + "))";
 
     String SQLDeleteAli = "DROP TABLE IF EXISTS " + tabla2;
     String SQLDeleteCat = "DROP TABLE IF EXISTS " + tabla1;
