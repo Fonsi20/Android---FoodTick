@@ -63,6 +63,7 @@ public class MenuActivity extends AppCompatActivity {
             @SuppressLint("ResourceAsColor")
             @Override
             public void onClick(View v) {
+
                 int i = 0;
                 abrirBBDD();
 
@@ -94,6 +95,12 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+                abrirBBDD();
+                totalAzucar = 0f;
+                totalHidratos = 0f;
+                totalGrasas = 0f;
+                contadorSaludable = 0;
+
                 if (ComidaList.size() == 0 || ComidaList == null) {
 
                     AlertDialog.Builder ventana = new AlertDialog.Builder(MenuActivity.this);
@@ -110,21 +117,28 @@ public class MenuActivity extends AppCompatActivity {
                     //El codigo que voy a poner aquí solo sirve para el valor defectivo de 100g, aún no compruebo que los ED estén vacios o no.
 
                     for (productoMostrar com : pMostrar) {
-                        if (!com.getCategoria().equals("Frutas") || !com.getCategoria().equals("Hortalizas")) {
+                        if (!com.getCategoria().equals("Frutas")) {
                             totalAzucar += com.getAzucares();
                             totalGrasas += com.getGrasas();
                             totalHidratos += com.getHidratos();
                         }
                     }
 
-                    if (totalGrasas >= 400) {
+                    Log.i("productoNUEVO", "Total Azucar: " + totalAzucar);
+                    Log.i("productoNUEVO", "Total Grasas: " + totalGrasas);
+                    Log.i("productoNUEVO", "Total Hidratos: " + totalHidratos);
+
+                    if (totalGrasas >= 200) {
                         contadorSaludable++;
+                        Log.i("productoNUEVO", "Contador Grasas: " + contadorSaludable);
                     }
                     if (totalHidratos >= 200) {
                         contadorSaludable++;
+                        Log.i("productoNUEVO", "Contador Hidratos: " + contadorSaludable);
                     }
                     if (totalAzucar >= 200) {
                         contadorSaludable++;
+                        Log.i("productoNUEVO", "Contador Azucar: " + contadorSaludable);
                     }
 
                     if (contadorSaludable >= 1 && contadorSaludable <= 2) {
