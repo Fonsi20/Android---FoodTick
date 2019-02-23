@@ -100,7 +100,6 @@ public class MenuActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                abrirBBDD();
                 totalAzucar = 0f;
                 totalHidratos = 0f;
                 totalGrasas = 0f;
@@ -309,9 +308,7 @@ public class MenuActivity extends AppCompatActivity {
         super.onStop();
 
         abrirBBDD();
-
         int i = 0;
-
         consultarListaComidasMenu();
 
         while (ComidaList.size() > i) {
@@ -326,8 +323,15 @@ public class MenuActivity extends AppCompatActivity {
 
             i++;
         }
-
         DBComidas.close();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+
+        abrirBBDD();
+        consultarListaComidasMenu();
+
+    }
 }
