@@ -1,12 +1,19 @@
 package com.example.foodtrick.BBDD;
 
 import android.content.Context;
+import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.example.foodtrick.R;
 
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public class BDHelper extends SQLiteOpenHelper {
+
 
     static final String tabla1 = "Categorias";
     static final String tabla2 = "Alimentos";
@@ -23,7 +30,8 @@ public class BDHelper extends SQLiteOpenHelper {
     static final String columna11 = "menu";
 
     String SQLCrearCat = "CREATE TABLE IF NOT EXISTS " + tabla1 + "(" + columna1 + " INTEGER PRIMARY KEY, " + columna2 + " VARCHAR(30), " + columna3 + " VARCHAR(300))";
-    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " FLOAT(30), " + columna6 + " FLOAT(30), " + columna7 + " FLOAT(30), " + columna8 + " INTEGER, " + columna10 + " BLOB," + columna9 + " BLOB," + columna11 + " INTEGER, FOREIGN KEY (" + columna8 + ") REFERENCES Categorias(" + columna1 + "))";
+    String SQLCrearAli = "CREATE TABLE IF NOT EXISTS " + tabla2 + "(" + columna4 + " VARCHAR(30) PRIMARY KEY, " + columna5 + " FLOAT(30), " + columna6 + " FLOAT(30), " + columna7 + " FLOAT(30), "
+            + columna8 + " INTEGER, " + columna10 + " BLOB," + columna9 + " BLOB," + columna11 + " INTEGER, FOREIGN KEY (" + columna8 + ") REFERENCES Categorias(" + columna1 + "))";
 
     String SQLDeleteAli = "DROP TABLE IF EXISTS " + tabla2;
     String SQLDeleteCat = "DROP TABLE IF EXISTS " + tabla1;
@@ -35,41 +43,41 @@ public class BDHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQLCrearCat);
-        sqLiteDatabase.execSQL(SQLCrearAli);
-        sqLiteDatabase.execSQL("INSERT INTO Categorias values (1,'Carne','Come Carne menos de 5 veces a la semana.')," +
-                "(2,'Pescado','El pescado es muy buneo.')," +
-                "(3,'Hortalizas','Del campo a tu casa.')," +
-                "(4,'Bebidas','Desde agua a bebidas alcoholicas.')," +
-                "(5,'Lacteos','Yogures, quesos, leche.')," +
-                "(6,'Frutas','Pomelo <3.')," +
-                "(7,'Postres','THE CAKE IS A LIE!.')," +
-                "(8,'Pasta','Unos buenos rigoletis di el doctore hecter')");
-        sqLiteDatabase.execSQL("INSERT INTO Alimentos values ('Lomo Embuchado',14,245,75,1,'0','0','0')," +
-                "('Solomillo Mercadona',145,89,32,1,'"+ R.drawable.carne_grande + "','" + R.drawable.carne + "','0')," +
-                "('Costilla de Ternera',105,21,455,1,'0','0','0')," +
-                "('Agua',0,0,0,4,'0','0','0')," +
-                "('Leche Asturian Desnatada',36,45,10,5,'0','0','0')," +
-                "('Queso Gran Capitan Semicurado',55,11,45,5,'0','0','0')," +
-                "('Manzana Golden',0,0,0,6,'0','0','0')," +
-                "('Platano de Canarias',20,0,0,6,'0','0','0')," +
-                "('Naranja Valenciana',0,40,0,6,'0','0','0')," +
-                "('Kiwi',1254,8562,5000,6,'0','0','0')," +
-                "('Vino Rioja',40,25,99,4,'0','0','0')," +
-                "('Nestea',200,10,45,4,'0','0','0')," +
-                "('Crema Cataalana',740,620,205,7,'0','0','0')," +
-                "('Donut',740,620,205,7,'0','0','0')," +
-                "('Pastel de Zanahoria',940,920,905,7,'0','0','0')," +
-                "('Calabazin',70,60,5,3,'0','0','0')," +
-                "('Pastel de Calabaza',740,620,205,7,'0','0','0')," +
-                "('Filloas',740,620,205,7,'0','0','0')," +
-                "('Bizcocho',70,65,29,7,'0','0','0')," +
-                "('Gelatina',40,20,5,7,'0','0','0')," +
-                "('Helado Magnum',740,620,205,7,'0','0','0')," +
-                "('Coca-Cola',354,200,100,4,'0','0','0')," +
-                "('Estrella Galicia',87,60,19,4,'0','0','0')," +
-                "('Carne picada de Cerdo y Ternera',15,72,32,1,'0','0','0')," +
-                "('Pizza Casa Tarradellas Carbonara',405,9,82,8,'0','0','0')," +
-                "('Salmón Pescanoba',254,35,21,2,'0','0','0')");
+         sqLiteDatabase.execSQL(SQLCrearAli);
+        /* sqLiteDatabase.execSQL("INSERT INTO Categorias values (1,'Carne','Come Carne menos de 5 veces a la semana.')," +
+         "(2,'Pescado','El pescado es muy buneo.')," +
+         "(3,'Hortalizas','Del campo a tu casa.')," +
+         "(4,'Bebidas','Desde agua a bebidas alcoholicas.')," +
+         "(5,'Lacteos','Yogures, quesos, leche.')," +
+         "(6,'Frutas','Pomelo <3.')," +
+         "(7,'Postres','THE CAKE IS A LIE!.')," +
+         "(8,'Pasta','Unos buenos rigoletis di el doctore hecter')");
+         sqLiteDatabase.execSQL("INSERT INTO Alimentos values ('Lomo Embuchado',14,245,75,1,'0','0','0')," +
+         "('Solomillo Mercadona',145,89,32,1,'" + R.drawable.carne_grande + "','" + R.drawable.carne + "','0')," +
+         "('Costilla de Ternera',105,21,455,1,'0','0','0')," +
+         "('Agua',0,0,0,4,'0','0','0')," +
+         "('Leche Asturian Desnatada',36,45,10,5,'0','0','0')," +
+         "('Queso Gran Capitan Semicurado',55,11,45,5,'0','0','0')," +
+         "('Manzana Golden',0,0,0,6,'0','0','0')," +
+         "('Platano de Canarias',20,0,0,6,'0','0','0')," +
+         "('Naranja Valenciana',0,40,0,6,'0','0','0')," +
+         "('Kiwi',1254,8562,5000,6,'0','0','0')," +
+         "('Vino Rioja',40,25,99,4,'0','0','0')," +
+         "('Nestea',200,10,45,4,'0','0','0')," +
+         "('Crema Cataalana',740,620,205,7,'0','0','0')," +
+         "('Donut',740,620,205,7,'0','0','0')," +
+         "('Pastel de Zanahoria',940,920,905,7,'0','0','0')," +
+         "('Calabazin',70,60,5,3,'0','0','0')," +
+         "('Pastel de Calabaza',740,620,205,7,'0','0','0')," +
+         "('Filloas',740,620,205,7,'0','0','0')," +
+         "('Bizcocho',70,65,29,7,'0','0','0')," +
+         "('Gelatina',40,20,5,7,'0','0','0')," +
+         "('Helado Magnum',740,620,205,7,'0','0','0')," +
+         "('Coca-Cola',354,200,100,4,'0','0','0')," +
+         "('Estrella Galicia',87,60,19,4,'0','0','0')," +
+         "('Carne picada de Cerdo y Ternera',15,72,32,1,'0','0','0')," +
+         "('Pizza Casa Tarradellas Carbonara',405,9,82,8,'0','0','0')," +
+         "('Salmón Pescanoba',254,35,21,2,'0','0','0')");*/
     }
 
     @Override

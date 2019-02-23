@@ -5,6 +5,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -13,6 +14,11 @@ import com.example.foodtrick.BBDD.BDHelper;
 import com.example.foodtrick.Objetos.Categoria;
 import com.example.foodtrick.Objetos.Comida;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +36,12 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        try {
+            deployDatabase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         btnCat1 = (ImageButton) findViewById(R.id.btncate1);
         btnCat2 = (ImageButton) findViewById(R.id.btncate2);
@@ -168,6 +180,41 @@ public class MainActivity extends AppCompatActivity {
         DBComidas.close();
     }
 
+    private void deployDatabase() throws IOException {
+
+        //Open your local db as the input stream
+        String packageName = getApplicationContext().getPackageName();
+        String DB_PATH = "/data/data/" + packageName + "/databases/";
+        //Create the directory if it does not exist
+        File directory = new File(DB_PATH);
+        if (!directory.exists()) {
+            directory.mkdirs();
+        }
+
+        String DB_NAME = "Comidas"; //The name of the source sqlite file
+
+        InputStream myInput = getAssets().open("Comidas");
+
+        // Path to the just created empty db
+        String outFileName = DB_PATH + DB_NAME;
+
+        //Open the empty db as the output stream
+        OutputStream myOutput = new FileOutputStream(outFileName);
+
+        //transfer bytes from the inputfile to the outputfile
+        byte[] buffer = new byte[1024];
+        int length;
+        while ((length = myInput.read(buffer)) > 0) {
+            myOutput.write(buffer, 0, length);
+        }
+
+        //Close the streams
+        myOutput.flush();
+        myOutput.close();
+        myInput.close();
+
+    }
+
     private void consultarListaCategorias() {
         Categoria cat = null;
         CategoriasList = new ArrayList<Categoria>();
@@ -179,6 +226,7 @@ public class MainActivity extends AppCompatActivity {
             cat.setId(cursor.getInt(0));
             cat.setNombre(cursor.getString(1));
             cat.setDescripcion(cursor.getString(2));
+            Log.i("productoNUEVO", cursor.getString(1));
 
             CategoriasList.add(cat);
         }
@@ -188,6 +236,7 @@ public class MainActivity extends AppCompatActivity {
     private void obtenerLista() {
         listaCategorias = new ArrayList<String>();
         for (int i = 0; i < CategoriasList.size(); i++) {
+            Log.i("productoNUEVO", CategoriasList.get(i).getNombre());
             listaCategorias.add(CategoriasList.get(i).getNombre());
         }
     }
