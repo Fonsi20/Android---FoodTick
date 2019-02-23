@@ -92,7 +92,11 @@ public class ListaComidas extends AppCompatActivity {
         while (cursor.moveToNext()) {
             com = new Comida();
             com.setCategoria(cursor.getString(4));
-            com.setNombre(cursor.getString(0));
+            if (numCat == "1") {
+                com.setNombre(cursor.getString(0));
+            } else {
+                com.setNombre(cursor.getString(0));
+            }
             com.setCont(cursor.getInt(7));
 
             //Para ver si tiene una imagen para la lista

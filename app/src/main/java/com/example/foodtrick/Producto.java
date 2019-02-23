@@ -133,6 +133,7 @@ public class Producto extends AppCompatActivity {
 
     private void consultaComidaProducto() {
 
+
         Cursor cursor = DBComidas.rawQuery("select a.nombreA,c.nombreC,a.hidratos,a.azucar,a.grasa,a.imgpro from Alimentos as a inner join Categorias as c on a.cat=c.id where a.nombreA='" + nombreP.toString() + "'", null);
 
         if (cursor.moveToFirst()) {

@@ -91,6 +91,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_marginTop="35dp"
             android:gravity="center"
             android:orientation="horizontal">
@@ -130,11 +131,11 @@
                 android:orientation="vertical">
 
                 <TextView
-                    android:gravity="center"
                     android:id="@+id/btn1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
+                    android:gravity="center"
                     android:paddingBottom="10dp"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
@@ -143,7 +144,7 @@
                     android:id="@+id/btncate1"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/steak" />
+                    android:background="@drawable/iconos_cat1" />
 
             </LinearLayout>
 
@@ -169,7 +170,7 @@
                     android:id="@+id/btncate2"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/fish" />
+                    android:background="@drawable/iconos_cat5" />
 
             </LinearLayout>
 
@@ -179,6 +180,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_marginTop="20dp"
             android:gravity="center"
             android:orientation="horizontal">
@@ -231,7 +233,7 @@
                     android:id="@+id/btncate4"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/cocktail" />
+                    android:background="@drawable/rice" />
 
             </LinearLayout>
 
@@ -257,7 +259,7 @@
                     android:id="@+id/btncate5"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/dinner" />
+                    android:background="@drawable/iconos_cat4" />
 
             </LinearLayout>
 
@@ -266,6 +268,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="25dp"
             android:gravity="center"
@@ -293,7 +296,7 @@
                     android:id="@+id/btncate6"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/porridge" />
+                    android:background="@drawable/iconos_cat3" />
 
             </LinearLayout>
 
@@ -320,7 +323,7 @@
                     android:id="@+id/btncate7"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/cupcake" />
+                    android:background="@drawable/kale" />
 
             </LinearLayout>
 
@@ -348,7 +351,7 @@
                     android:id="@+id/btncate8"
                     android:layout_width="70dp"
                     android:layout_height="70dp"
-                    android:background="@drawable/rice" />
+                    android:background="@drawable/iconos_cat2" />
 
             </LinearLayout>
         </LinearLayout>
