@@ -24,6 +24,8 @@
 
 
         <TextView
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
             android:id="@+id/NombreProducto"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -88,7 +90,7 @@
                     android:gravity="center"
                     android:paddingTop="0dp"
                     android:paddingBottom="5dp"
-                    android:text="Cal"
+                    android:text="@string/azucar"
                     android:textColor="@color/black"
                     android:textSize="15sp"
                     android:textStyle="bold" />
@@ -109,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
-                    android:text="Kcal/100 gr"
+                    android:text="g/100 gr"
                     android:textColor="@color/black"
                     android:textSize="8sp" />
 
@@ -129,7 +131,7 @@
                     android:gravity="center"
                     android:paddingTop="0dp"
                     android:paddingBottom="5dp"
-                    android:text="Pro"
+                    android:text="@string/sal"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -148,7 +150,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
-                    android:text="Kcal/100 gr"
+                    android:text="g/100 gr"
                     android:textColor="@color/black"
                     android:textSize="8sp" />
 
@@ -168,7 +170,7 @@
                     android:gravity="center"
                     android:paddingTop="0dp"
                     android:paddingBottom="5dp"
-                    android:text="Grs"
+                    android:text="@string/grasa"
                     android:textColor="@color/black"
                     android:textSize="15sp" />
 
@@ -187,7 +189,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
-                    android:text="g/100 gr"
+                    android:text="/100 gr"
                     android:textColor="@color/black"
                     android:textSize="8sp" />
 

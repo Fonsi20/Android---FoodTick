@@ -43,7 +43,7 @@ public class BDHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(SQLCrearCat);
-         sqLiteDatabase.execSQL(SQLCrearAli);
+        sqLiteDatabase.execSQL(SQLCrearAli);
         /* sqLiteDatabase.execSQL("INSERT INTO Categorias values (1,'Carne','Come Carne menos de 5 veces a la semana.')," +
          "(2,'Pescado','El pescado es muy buneo.')," +
          "(3,'Hortalizas','Del campo a tu casa.')," +

@@ -47,28 +47,28 @@ public class ListaComidas extends AppCompatActivity {
         nomCat.setText(Categoria);
 
         switch (Categoria) {
-            case "Carne":
+            case "Cereais e derivados":
                 numCat = "1";
                 break;
-            case "Pescado":
+            case "Bebidas":
                 numCat = "2";
                 break;
-            case "Hortalizas":
+            case "Froita":
                 numCat = "3";
                 break;
-            case "Bebidas":
+            case "Legumes":
                 numCat = "4";
                 break;
-            case "Lacteos":
+            case "Lácteos":
                 numCat = "5";
                 break;
-            case "Frutas":
+            case "Ovos":
                 numCat = "6";
                 break;
-            case "Postres":
+            case "Verduras e Hortalizas":
                 numCat = "7";
                 break;
-            case "Pasta":
+            case "Sementes e froitos secos":
                 numCat = "8";
                 break;
         }

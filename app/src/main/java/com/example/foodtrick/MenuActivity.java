@@ -36,6 +36,9 @@ public class MenuActivity extends AppCompatActivity {
     private float totalAzucar = 0f;
     private float totalHidratos = 0f;
     private float totalGrasas = 0f;
+    int contadorSaludableGrasas = 0;
+    int contadorSaludableAzucar = 0;
+    int contadorSaludableSal = 0;
 
     @Override
 
@@ -129,13 +132,6 @@ public class MenuActivity extends AppCompatActivity {
                             float grasas = pMostrar.get(i).getGrasas();
                             float hidratos = pMostrar.get(i).getHidratos();
 
-                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getAzucares());
-                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getGrasas());
-                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getHidratos());
-
-                            Log.i("productoNUEVO", "----------------------------------------");
-
-
                             azucar = (Float.parseFloat(edValor.getText().toString()) * azucar) / 100;
                             grasas = (Float.parseFloat(edValor.getText().toString()) * grasas) / 100;
                             hidratos = (Float.parseFloat(edValor.getText().toString()) * hidratos) / 100;
@@ -143,9 +139,6 @@ public class MenuActivity extends AppCompatActivity {
                             pMostrar.get(i).setAzucares(azucar);
                             pMostrar.get(i).setGrasas(grasas);
                             pMostrar.get(i).setHidratos(hidratos);
-                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getAzucares());
-                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getGrasas());
-                            Log.i("productoNUEVO", "Valor que escribí: " + pMostrar.get(i).getHidratos());
 
                         }
 
@@ -159,42 +152,89 @@ public class MenuActivity extends AppCompatActivity {
                         }
                     }
 
-                    Log.i("productoNUEVO", "Total Azucar: " + totalAzucar);
-                    Log.i("productoNUEVO", "Total Grasas: " + totalGrasas);
-                    Log.i("productoNUEVO", "Total Hidratos: " + totalHidratos);
-
-                    if (totalGrasas >= 200) {
-                        contadorSaludable++;
-                        Log.i("productoNUEVO", "Contador Grasas: " + contadorSaludable);
-                    }
-                    if (totalHidratos >= 200) {
-                        contadorSaludable++;
-                        Log.i("productoNUEVO", "Contador Hidratos: " + contadorSaludable);
-                    }
-                    if (totalAzucar >= 200) {
-                        contadorSaludable++;
-                        Log.i("productoNUEVO", "Contador Azucar: " + contadorSaludable);
+                    if (totalGrasas < 3) {
+                        contadorSaludableGrasas = 0;
+                    } else if (totalGrasas >= 3 && totalGrasas <= 20) {
+                        contadorSaludableGrasas = 1;
+                    } else if (totalGrasas > 20) {
+                        contadorSaludableGrasas = 2;
                     }
 
-                    if (contadorSaludable >= 1 && contadorSaludable <= 2) {
-                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+
+                    if (totalHidratos < 0.3) {
+                        contadorSaludableSal = 0;
+                    } else if (totalHidratos >= 0.3f && totalHidratos <= 1.5f) {
+                        contadorSaludableSal = 1;
+                    } else if (totalHidratos > 1.5f) {
+                        contadorSaludableSal = 2;
+                    }
+
+
+                    if (totalAzucar < 5) {
+                        contadorSaludableAzucar = 0;
+                    } else if (totalAzucar >= 5 && totalAzucar <= 10) {
+                        contadorSaludableAzucar = 1;
+                    } else if (totalAzucar > 10) {
+                        contadorSaludableAzucar = 2;
+                    }
+
+
+                    if (contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1) {
                         btnCalcular.setText(R.string.tencuidado);
                         btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
-                    } else if (contadorSaludable == 3) {
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+
+                    } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 2 && contadorSaludableGrasas == 2) {
+                        btnCalcular.setText(R.string.noessaludable);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_nosaludable);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+
+                    } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 0 && contadorSaludableGrasas == 0) {
+                        btnCalcular.setText(R.string.essaludable);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_saludable);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+
+                    } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 0) {
+                        btnCalcular.setText(R.string.essaludable);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_saludable);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+
+                    } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0) {
+                        btnCalcular.setText(R.string.tencuidado);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+
+                    } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2) {
+                        btnCalcular.setText(R.string.tencuidado);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+
+                    } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2) {
+                        btnCalcular.setText(R.string.noessaludable);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+                        btnCalcular.setBackgroundResource(R.drawable.boton_nosaludable);
+
+                    } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 0 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 2 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 0 && contadorSaludableGrasas == 2) {
+                        btnCalcular.setText(R.string.tencuidado);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
+                        btnCalcular.setTextColor(getResources().getColor(R.color.white));
+
+                    } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 2 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 2 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 0 && contadorSaludableGrasas == 2) {
                         btnCalcular.setTextColor(getResources().getColor(R.color.white));
                         btnCalcular.setText(R.string.noessaludable);
                         btnCalcular.setBackgroundResource(R.drawable.boton_nosaludable);
-                    } else if (contadorSaludable == 0) {
+
+                    } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 0 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1) {
                         btnCalcular.setTextColor(getResources().getColor(R.color.white));
-                        btnCalcular.setText(R.string.essaludable);
-                        btnCalcular.setBackgroundResource(R.drawable.boton_saludable);
+                        btnCalcular.setText(R.string.tencuidado);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
+
                     }
                 }
             }
-
-
         });
     }
+
 
     private void abrirBBDD() {
         BDname = "Comidas";

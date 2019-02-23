@@ -17,7 +17,9 @@ public class Producto extends AppCompatActivity {
     private String BDname;
     private int BDversion;
     private SQLiteDatabase DBComidas;
-    int contadorSaludable = 0;
+    int contadorSaludableGrasas = 0;
+    int contadorSaludableSal = 0;
+    int contadorSaludableAzucar = 0;
 
     private TextView txtNombreP, txtNombreCat, txtGrasas, txtAzucares, txtHidratos, txSalu;
     private productoMostrar pMostrar;
@@ -55,34 +57,78 @@ public class Producto extends AppCompatActivity {
         txtHidratos.setText(String.valueOf(pMostrar.getHidratos()));
         LLProdu.setBackgroundResource(pMostrar.getImg());
 
-        if (pMostrar.getGrasas() >= 400) {
-            contadorSaludable++;
+        if (pMostrar.getGrasas() < 3) {
+            contadorSaludableGrasas = 0;
+        } else if (pMostrar.getGrasas() >= 3 && pMostrar.getGrasas() <= 20) {
+            contadorSaludableGrasas = 1;
+        } else if (pMostrar.getGrasas() > 20) {
+            contadorSaludableGrasas = 2;
         }
-        if (pMostrar.getHidratos() >= 200) {
-            contadorSaludable++;
+
+        if (pMostrar.getHidratos() < 0.3) {
+            contadorSaludableSal = 0;
+        } else if (pMostrar.getHidratos() >= 0.3f && pMostrar.getHidratos() <= 1.5f) {
+            contadorSaludableSal = 1;
+        } else if (pMostrar.getHidratos() > 1.5f) {
+            contadorSaludableSal = 2;
         }
-        if (pMostrar.getAzucares() >= 200) {
-            contadorSaludable++;
+
+        if (pMostrar.getAzucares() < 5) {
+            contadorSaludableAzucar = 0;
+        } else if (pMostrar.getAzucares() >= 5 && pMostrar.getAzucares() <= 10) {
+            contadorSaludableAzucar = 1;
+        } else if (pMostrar.getAzucares() > 10) {
+            contadorSaludableAzucar = 2;
         }
 
         if (pMostrar.getCategoria().equals("Frutas") || pMostrar.getCategoria().equals("Hortalizas")) {
             txSalu.setText(R.string.essaludable);
             txSalu.setBackgroundResource(R.drawable.boton_saludable);
         } else {
-            if (contadorSaludable >= 1 && contadorSaludable <= 2) {
+            if (contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1) {
                 txSalu.setText(R.string.tencuidado);
                 txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
-            } else if (contadorSaludable == 3) {
+
+            } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 2 && contadorSaludableGrasas == 2) {
                 txSalu.setText(R.string.noessaludable);
                 txSalu.setBackgroundResource(R.drawable.boton_nosaludable);
 
-            } else if (contadorSaludable == 0) {
+            } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 0 && contadorSaludableGrasas == 0) {
                 txSalu.setText(R.string.essaludable);
                 txSalu.setBackgroundResource(R.drawable.boton_saludable);
-            }
-        }
 
-        DBComidas.close();
+            } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 0) {
+                txSalu.setText(R.string.essaludable);
+                txSalu.setBackgroundResource(R.drawable.boton_saludable);
+
+            } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0) {
+                txSalu.setText(R.string.tencuidado);
+                txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
+
+            } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2) {
+                txSalu.setText(R.string.tencuidado);
+                txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
+
+            } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2) {
+                txSalu.setText(R.string.noessaludable);
+                txSalu.setBackgroundResource(R.drawable.boton_nosaludable);
+
+            } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 0 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 2 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 0 && contadorSaludableGrasas == 2) {
+                txSalu.setText(R.string.tencuidado);
+                txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
+
+            } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 2 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 2 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 0 && contadorSaludableGrasas == 2) {
+                txSalu.setText(R.string.noessaludable);
+                txSalu.setBackgroundResource(R.drawable.boton_nosaludable);
+
+            } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 0 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1) {
+                txSalu.setText(R.string.tencuidado);
+                txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
+
+            }
+
+            DBComidas.close();
+        }
     }
 
     private void consultaComidaProducto() {
@@ -110,4 +156,5 @@ public class Producto extends AppCompatActivity {
         }
 
     }
+
 }

@@ -78,6 +78,15 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
             }
         });
 
+        holder.txNombre.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(context, Producto.class);
+                i.putExtra("NombreDelProducto", holder.txNombre.getText().toString());
+                context.startActivity(i);
+            }
+        });
+
         holder.txCategoria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
