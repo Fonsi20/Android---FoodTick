@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         consultarListaCategorias();
 
-        for (int i = 0; i < listaCategorias.size() + 1; i++) {
+        /**for (int i = 0; i < listaCategorias.size() + 1; i++) {
             switch (i) {
                 case 1:
                     bC1.setText(listaCategorias.get(0));
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
                     bC8.setText(listaCategorias.get(7));
                     break;
             }
-        }
+        }**/
 
         btnCat1.setOnClickListener(new View.OnClickListener() {
             @Override

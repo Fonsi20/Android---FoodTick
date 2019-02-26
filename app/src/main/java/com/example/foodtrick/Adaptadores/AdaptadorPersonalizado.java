@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -32,7 +31,6 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
 
     static class ViewHolder {
         TextView txNombre;
-        TextView txCategoria;
         ImageView imagen;
         ImageButton btnAddCart;
     }
@@ -52,7 +50,6 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
             holder = new ViewHolder();
 
             holder.txNombre = (TextView) fila.findViewById(R.id.txNombre);
-            holder.txCategoria = (TextView) fila.findViewById(R.id.txCategoria);
             holder.imagen = (ImageView) fila.findViewById(R.id.imgIcon);
             holder.btnAddCart = (ImageButton) fila.findViewById(R.id.btnAñadirCarrito);
 
@@ -80,15 +77,6 @@ public class AdaptadorPersonalizado extends ArrayAdapter {
         });
 
         holder.txNombre.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(context, Producto.class);
-                i.putExtra("NombreDelProducto", holder.txNombre.getText().toString());
-                context.startActivity(i);
-            }
-        });
-
-        holder.txCategoria.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i = new Intent(context, Producto.class);

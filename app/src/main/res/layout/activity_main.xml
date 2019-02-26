@@ -137,6 +137,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:gravity="center"
                     android:paddingBottom="10dp"
+                    android:text="@string/cereales"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -163,6 +164,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="10dp"
+                    android:text="@string/bebidas"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -200,6 +202,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="10dp"
+                    android:text="@string/fruta"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -226,6 +229,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="10dp"
+                    android:text="@string/legumbres"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -252,6 +256,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="10dp"
+                    android:text="@string/lacteos"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -289,6 +294,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/montserrat_bold"
                     android:paddingBottom="10dp"
+                    android:text="@string/huevos"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -316,6 +322,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:gravity="center"
                     android:paddingBottom="10dp"
+                    android:text="@string/verduras"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 
@@ -344,6 +351,7 @@
                     android:fontFamily="@font/montserrat_bold"
                     android:gravity="center"
                     android:paddingBottom="10dp"
+                    android:text="@string/frutosSecos"
                     android:textColor="@color/black"
                     android:textSize="14sp" />
 

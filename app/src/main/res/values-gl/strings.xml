@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">FoodTick</string>
+    <string name="nombreapp1">Food</string>
+    <string name="nombreapp2">Tick</string>
+    <string name="aloha">Bos Días</string>
+    <string name="textBienvenida">Nesta aplicación, informarémonos cales dos nosos produtos, que temos na base de datos, son saudables para a túa comida e as cápsulas non.</string>
+    <string name="textBienvenida2">Escolle unha categoría e busque o alimento que desexe.</string>
+    <string name="carnes">Carnes</string>
+    <string name="pescados">Pescados</string>
+    <string name="Hortalizas">Legumes</string>
+    <string name="Azucares">Azucres</string>
+    <string name="Bebidas">Bebidas</string>
+    <string name="Pasta">Pasta</string>
+    <string name="Pastelería">Pastelería</string>
+    <string name="Ultraprocesados">Procesados</string>
+    <string name="infoNutricional">" Información nutricional alimentaria"</string>
+    <string name="essaludable">É SALUDABLE</string>
+    <string name="noessaludable">NON É SAUDABLE</string>
+    <string name="tencuidado">NON É MOI SAUDABLE</string>
+    <string name="esbueno">" ¿É BO PARA TI?"</string>
+    <string name="vaciarCesta">Vaciar a cesta</string>
+    <string name="menu">Menú</string>
+    <string name="azucar">Azucres</string>
+    <string name="grasa">Graxa</string>
+    <string name="sal">Sal</string>
+    <string name="masInfo">Máis información</string>
+    <string name="cantidad">Por defecto 100g</string>
+    <string name="loSiento">Sinto moito :(</string>
+    <string name="loSiento2">Non introduciu nada no menú. Volve á pantalla principal e selecciona un prato.</string>
+    <string name="titulodialog">Teña coidado!</string>
+    <string name="textodialog">Non se sabe se se come saudable se nin sequera elixe comida. Nesta aplicación non aceptamos que non comemos, polo que pedimos que regrese á pantalla principal e elixa os seus pratos favoritos, sen preguntar e que non vexo que deixe nada no prato que estea nos ósos.</string>
+    <string name="cereales">Cereais e derivados</string>
+    <string name="bebidas">Bebidas</string>
+    <string name="fruta">Froita</string>
+    <string name="legumbres">Legumes</string>
+    <string name="lacteos">Lácteos</string>
+    <string name="huevos">Ovos</string>
+    <string name="verduras">Verduras e Hortalizas</string>
+    <string name="frutosSecos">Sementes e froitos secos</string>
+
+</resources>

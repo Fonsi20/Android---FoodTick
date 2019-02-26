@@ -81,7 +81,7 @@ public class Producto extends AppCompatActivity {
             contadorSaludableAzucar = 2;
         }
 
-        if (pMostrar.getCategoria().equals("Frutas") || pMostrar.getCategoria().equals("Hortalizas")) {
+        if (pMostrar.getCategoria().equals("Froita") || pMostrar.getCategoria().equals("Verduras e Hortalizas")) {
             txSalu.setText(R.string.essaludable);
             txSalu.setBackgroundResource(R.drawable.boton_saludable);
         } else {

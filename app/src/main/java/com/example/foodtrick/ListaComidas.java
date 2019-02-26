@@ -5,7 +5,6 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -49,26 +48,34 @@ public class ListaComidas extends AppCompatActivity {
         switch (Categoria) {
             case "Cereais e derivados":
                 numCat = "1";
+                nomCat.setText(R.string.cereales);
                 break;
             case "Bebidas":
                 numCat = "2";
+                nomCat.setText(R.string.bebidas);
                 break;
             case "Froita":
                 numCat = "3";
+                nomCat.setText(R.string.fruta);
                 break;
             case "Legumes":
                 numCat = "4";
+                nomCat.setText(R.string.legumbres);
                 break;
             case "Lácteos":
                 numCat = "5";
+                nomCat.setText(R.string.lacteos);
                 break;
             case "Ovos":
                 numCat = "6";
+                nomCat.setText(R.string.huevos);
                 break;
             case "Verduras e Hortalizas":
+                nomCat.setText(R.string.verduras);
                 numCat = "7";
                 break;
             case "Sementes e froitos secos":
+                nomCat.setText(R.string.frutosSecos);
                 numCat = "8";
                 break;
         }
