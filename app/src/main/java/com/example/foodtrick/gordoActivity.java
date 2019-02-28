@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
 
@@ -20,6 +21,7 @@ public class gordoActivity extends AppCompatActivity {
     private LinearLayout lledad, rgGenero, rgActividad;
     private Button btnCalcular;
     private EditText edAltura, edPeso, edEdad;
+    private RadioButton rbHom, rbMujer;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -60,11 +62,31 @@ public class gordoActivity extends AppCompatActivity {
         edAltura = (EditText) findViewById(R.id.edAltura);
         edPeso = (EditText) findViewById(R.id.edPeso);
         edEdad = (EditText) findViewById(R.id.edEdad);
+        rbHom = (RadioButton) findViewById(R.id.rbHombre);
+        rbMujer = (RadioButton) findViewById(R.id.rbMujer);
 
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (tituloge.getVisibility() == View.VISIBLE) {
+
+                    float peso = Float.parseFloat(edPeso.getText().toString());
+                    float altura = Float.parseFloat(edAltura.getText().toString());
+                    int edad = Integer.parseInt(edEdad.getText().toString());
+                    String texto = null;
+                    float MB = 0f;
+
+                    if (rbHom.isChecked()) {
+                        MB = (float) (66 + (13.7 * peso) + (5 * altura) - (6.8 * edad));
+                    } else if (rbMujer.isChecked()) {
+                        MB = (float) (655 + (9.6 * peso) + (1.7 * altura) - (4.7 * edad));
+                    }
+
+                    AlertDialog.Builder ventana = new AlertDialog.Builder(gordoActivity.this);
+                    ventana.setTitle(R.string.igc);
+                    ventana.setMessage("Tienes un metabolismo basal es: " + String.valueOf(MB));
+                    ventana.setIcon(R.drawable.foodtick);
+                    ventana.show();
 
                 } else {
                     float peso = Float.parseFloat(edPeso.getText().toString());
