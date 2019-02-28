@@ -81,7 +81,7 @@ public class Producto extends AppCompatActivity {
             contadorSaludableAzucar = 2;
         }
 
-        if (pMostrar.getCategoria().equals("Froita") || pMostrar.getCategoria().equals("Verduras e Hortalizas")) {
+        if (pMostrar.getCategoria().equals("Froita")) {
             txSalu.setText(R.string.essaludable);
             txSalu.setBackgroundResource(R.drawable.boton_saludable);
         } else {
@@ -98,16 +98,16 @@ public class Producto extends AppCompatActivity {
                 txSalu.setBackgroundResource(R.drawable.boton_saludable);
 
             } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 0) {
-                txSalu.setText(R.string.essaludable);
-                txSalu.setBackgroundResource(R.drawable.boton_saludable);
+                txSalu.setText(R.string.tencuidado);
+                txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
 
             } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0) {
                 txSalu.setText(R.string.tencuidado);
                 txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
 
             } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2) {
-                txSalu.setText(R.string.tencuidado);
-                txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
+                txSalu.setText(R.string.noessaludable);
+                txSalu.setBackgroundResource(R.drawable.boton_nosaludable);
 
             } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2) {
                 txSalu.setText(R.string.noessaludable);
@@ -122,8 +122,8 @@ public class Producto extends AppCompatActivity {
                 txSalu.setBackgroundResource(R.drawable.boton_nosaludable);
 
             } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 0 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1) {
-                txSalu.setText(R.string.tencuidado);
-                txSalu.setBackgroundResource(R.drawable.boton_maybesaludable);
+                txSalu.setText(R.string.noessaludable);
+                txSalu.setBackgroundResource(R.drawable.boton_nosaludable);
 
             }
 

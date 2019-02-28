@@ -37,5 +37,7 @@
     <string name="huevos">Huevos</string>
     <string name="verduras">Verduras y hortalizas</string>
     <string name="frutosSecos">Semillas y frutos secos</string>
-
+    <string name="comoestas">¿Estás en forma?</string>
+    <string name="igc">IGC</string>
+    <string name="ge">GE</string>
 </resources>

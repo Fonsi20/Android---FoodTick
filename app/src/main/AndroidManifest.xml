@@ -9,6 +9,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
         <activity
+            android:name=".gordoActivity"
+            android:screenOrientation="portrait"/>
+        <activity
             android:name=".MenuActivity"
             android:screenOrientation="portrait" />
         <activity

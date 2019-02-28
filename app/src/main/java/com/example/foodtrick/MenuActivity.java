@@ -70,7 +70,7 @@ public class MenuActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 int i = 0;
-                abrirBBDD();
+                //abrirBBDD();
 
                 while (ComidaList.size() > i) {
                     String nombre = ComidaList.get(i).getNombre();
@@ -106,6 +106,19 @@ public class MenuActivity extends AppCompatActivity {
                 contadorSaludable = 0;
 
                 if (ComidaList.size() == 0 || ComidaList == null) {
+
+                    DBComidas.execSQL("UPDATE Alimentos SET menu=0");
+
+                    lvMenuC.setAdapter(null);
+                    consultarListaComidasMenu();
+                    AdaptadorPersonalizadoMenu adaptador2 = new AdaptadorPersonalizadoMenu(MenuActivity.this, ComidaList);
+                    lvMenuC.setAdapter(adaptador2);
+
+                    loNadaCesta.setVisibility(View.VISIBLE);
+                    lvMenuC.setVisibility(View.GONE);
+                    btnCalcular.setTextColor(getResources().getColor(R.color.black));
+                    btnCalcular.setText(R.string.esbueno);
+                    btnCalcular.setBackgroundResource(R.drawable.boton_redondo);
 
                     AlertDialog.Builder ventana = new AlertDialog.Builder(MenuActivity.this);
                     ventana.setTitle(R.string.titulodialog);
@@ -194,8 +207,8 @@ public class MenuActivity extends AppCompatActivity {
                         btnCalcular.setTextColor(getResources().getColor(R.color.white));
 
                     } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 0) {
-                        btnCalcular.setText(R.string.essaludable);
-                        btnCalcular.setBackgroundResource(R.drawable.boton_saludable);
+                        btnCalcular.setText(R.string.tencuidado);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
                         btnCalcular.setTextColor(getResources().getColor(R.color.white));
 
                     } else if (contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0) {
@@ -204,8 +217,8 @@ public class MenuActivity extends AppCompatActivity {
                         btnCalcular.setTextColor(getResources().getColor(R.color.white));
 
                     } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2) {
-                        btnCalcular.setText(R.string.tencuidado);
-                        btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
+                        btnCalcular.setText(R.string.noessaludable);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_nosaludable);
                         btnCalcular.setTextColor(getResources().getColor(R.color.white));
 
                     } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2) {
@@ -225,8 +238,8 @@ public class MenuActivity extends AppCompatActivity {
 
                     } else if (contadorSaludableAzucar == 2 && contadorSaludableSal == 1 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 1 && contadorSaludableSal == 2 && contadorSaludableGrasas == 0 || contadorSaludableAzucar == 0 && contadorSaludableSal == 1 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 2 && contadorSaludableSal == 0 && contadorSaludableGrasas == 1 || contadorSaludableAzucar == 1 && contadorSaludableSal == 0 && contadorSaludableGrasas == 2 || contadorSaludableAzucar == 0 && contadorSaludableSal == 2 && contadorSaludableGrasas == 1) {
                         btnCalcular.setTextColor(getResources().getColor(R.color.white));
-                        btnCalcular.setText(R.string.tencuidado);
-                        btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
+                        btnCalcular.setText(R.string.noessaludable);
+                        btnCalcular.setBackgroundResource(R.drawable.boton_nosaludable);
 
                     }
                 }
