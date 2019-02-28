@@ -70,8 +70,9 @@
                 android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="1.85"
+                android:inputType="numberDecimal"
                 android:paddingLeft="15dp"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textColorHint="@color/blue"
                 android:textSize="14sp" />
 
@@ -101,8 +102,9 @@
                 android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="85"
+                android:inputType="numberDecimal"
                 android:paddingLeft="15dp"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textColorHint="@color/blue"
                 android:textSize="14sp" />
 
@@ -133,8 +135,9 @@
                 android:background="@drawable/boton_redondo"
                 android:fontFamily="@font/montserrat_regular"
                 android:hint="18"
+                android:inputType="number"
                 android:paddingLeft="15dp"
-                android:textColor="@color/blue"
+                android:textColor="@color/black"
                 android:textColorHint="@color/blue"
                 android:textSize="14sp" />
 
@@ -247,7 +250,7 @@
         </LinearLayout>
 
         <Button
-
+            android:id="@+id/btnCalcular"
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="25dp"
