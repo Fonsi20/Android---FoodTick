@@ -40,4 +40,27 @@
     <string name="comoestas">¿Estás en forma?</string>
     <string name="igc">IGC</string>
     <string name="ge">GE</string>
+    <string name="tituloigc">Calculando el Indice de Grasa Corportal (IGC)</string>
+    <string name="tituloge">Calculando el Gasto Energético (GE)</string>
+    <string name="altura">Introduce la altura: </string>
+    <string name="peso">Introduce tu peso: </string>
+    <string name="calcula">Calcular</string>
+    <string name="edad">Introduce tu edad: </string>
+    <string name="genero">Género:</string>
+    <string name="hombre">Hombre</string>
+    <string name="mujer">Mujer</string>
+    <string name="activi">Actividad diaria:</string>
+    <string name="ligera">Ligera</string>
+    <string name="moderada">Moderada</string>
+    <string name="intensa">Intensa</string>
+    <string name="tumetabolismoes">Tu metabolismo basal es: </string>
+    <string name="tugastototal">Tu gasto energético total es: </string>
+    <string name="obesidadMorvi">Obesidad Morvida:</string>
+    <string name="obesidadtipo2">Obesidad Tipo II: </string>
+    <string name="obesidadtipo1">Obesidad Tipo I: </string>
+    <string name="sobrepeso">Sobrepeso: </string>
+    <string name="normal">Peso normal: </string>
+    <string name="desnutricionleve">Desnutrición leve: </string>
+    <string name="desnutricionmedia">Desnutrición moderada: </string>
+    <string name="desnutricionmaxima">Desnutrición grave: </string>
 </resources>
