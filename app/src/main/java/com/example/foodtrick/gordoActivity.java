@@ -106,7 +106,7 @@ public class gordoActivity extends AppCompatActivity {
                     }
 
                     AlertDialog.Builder ventana = new AlertDialog.Builder(gordoActivity.this);
-                    ventana.setTitle(R.string.igc);
+                    ventana.setTitle(R.string.ge);
                     ventana.setMessage("Tienes un metabolismo basal es: " + String.valueOf(MB) + "\nTu gasto energético total es: " + String.valueOf(GET));
                     ventana.setIcon(R.drawable.foodtick);
                     ventana.show();
