@@ -21,7 +21,7 @@ public class gordoActivity extends AppCompatActivity {
     private LinearLayout lledad, rgGenero, rgActividad;
     private Button btnCalcular;
     private EditText edAltura, edPeso, edEdad;
-    private RadioButton rbHom, rbMujer;
+    private RadioButton rbHom, rbMujer, rbLigero, rbModerado, rbMucho;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -64,6 +64,9 @@ public class gordoActivity extends AppCompatActivity {
         edEdad = (EditText) findViewById(R.id.edEdad);
         rbHom = (RadioButton) findViewById(R.id.rbHombre);
         rbMujer = (RadioButton) findViewById(R.id.rbMujer);
+        rbLigero = (RadioButton) findViewById(R.id.rbLigero);
+        rbModerado = (RadioButton) findViewById(R.id.rbModerado);
+        rbMucho = (RadioButton) findViewById(R.id.rbPesado);
 
         btnCalcular.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,17 +77,37 @@ public class gordoActivity extends AppCompatActivity {
                     float altura = Float.parseFloat(edAltura.getText().toString());
                     int edad = Integer.parseInt(edEdad.getText().toString());
                     String texto = null;
-                    float MB = 0f;
+                    float MB = 0f, GET = 0f;
 
-                    if (rbHom.isChecked()) {
-                        MB = (float) (66 + (13.7 * peso) + (5 * altura) - (6.8 * edad));
-                    } else if (rbMujer.isChecked()) {
-                        MB = (float) (655 + (9.6 * peso) + (1.7 * altura) - (4.7 * edad));
+                    if (rbLigero.isChecked()) {
+                        if (rbHom.isChecked()) {
+                            MB = (float) (66 + (13.7 * peso) + (5 * altura) - (6.8 * edad));
+                            GET = MB * 1.55f;
+                        } else if (rbMujer.isChecked()) {
+                            MB = (float) (655 + (9.6 * peso) + (1.7 * altura) - (4.7 * edad));
+                            GET = MB * 1.56f;
+                        }
+                    } else if (rbModerado.isChecked()) {
+                        if (rbHom.isChecked()) {
+                            MB = (float) (66 + (13.7 * peso) + (5 * altura) - (6.8 * edad));
+                            GET = MB * 1.78f;
+                        } else if (rbMujer.isChecked()) {
+                            MB = (float) (655 + (9.6 * peso) + (1.7 * altura) - (4.7 * edad));
+                            GET = MB * 1.64f;
+                        }
+                    } else if (rbMucho.isChecked()) {
+                        if (rbHom.isChecked()) {
+                            MB = (float) (66 + (13.7 * peso) + (5 * altura) - (6.8 * edad));
+                            GET = MB * 2.10f;
+                        } else if (rbMujer.isChecked()) {
+                            MB = (float) (655 + (9.6 * peso) + (1.7 * altura) - (4.7 * edad));
+                            GET = MB * 1.82f;
+                        }
                     }
 
                     AlertDialog.Builder ventana = new AlertDialog.Builder(gordoActivity.this);
                     ventana.setTitle(R.string.igc);
-                    ventana.setMessage("Tienes un metabolismo basal es: " + String.valueOf(MB));
+                    ventana.setMessage("Tienes un metabolismo basal es: " + String.valueOf(MB) + "\nTu gasto energético total es: " + String.valueOf(GET));
                     ventana.setIcon(R.drawable.foodtick);
                     ventana.show();
 
