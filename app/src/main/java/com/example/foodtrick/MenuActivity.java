@@ -191,6 +191,12 @@ public class MenuActivity extends AppCompatActivity {
                     }
 
 
+                    AlertDialog.Builder ventanatotales = new AlertDialog.Builder(MenuActivity.this);
+                    ventanatotales.setTitle("Total:");
+                    ventanatotales.setMessage("El total de grasas es: " + String.valueOf(totalGrasas) + "\nEl total de azucar es: " + String.valueOf(totalAzucar)+ "\nEl total de sal es: " + String.valueOf(totalHidratos));
+                    ventanatotales.setIcon(R.drawable.foodtick);
+                    ventanatotales.show();
+
                     if (contadorSaludableAzucar == 1 && contadorSaludableSal == 1 && contadorSaludableGrasas == 1) {
                         btnCalcular.setText(R.string.tencuidado);
                         btnCalcular.setBackgroundResource(R.drawable.boton_maybesaludable);
