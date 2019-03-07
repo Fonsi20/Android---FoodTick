@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="60dp"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -23,7 +24,7 @@
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginRight="100dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Calculando el Indice de Grasa Corportal (IGC)"
+            android:text="@string/tituloigc"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:visibility="visible"
@@ -39,7 +40,7 @@
             android:layout_marginTop="@dimen/activity_vertical_margin"
             android:layout_marginRight="100dp"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Calculando el Gasto Energético (GE)"
+            android:text="@string/tituloge"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:visibility="gone"
@@ -58,7 +59,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Introduce la altura: "
+                android:text="@string/altura"
                 android:textColor="@color/black" />
 
             <EditText
@@ -90,7 +91,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Introduce tu peso: "
+                android:text="@string/peso"
                 android:textColor="@color/black" />
 
             <EditText
@@ -123,7 +124,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="20dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Introduce tu edad: "
+                android:text="@string/edad"
                 android:textColor="@color/black" />
 
             <EditText
@@ -157,7 +158,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Género:"
+                android:text="@string/genero"
                 android:textColor="@color/black" />
 
             <RadioGroup
@@ -177,7 +178,7 @@
                     android:checked="true"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
-                    android:text="Hombre"
+                    android:text="@string/hombre"
                     android:textColor="@color/black" />
 
                 <RadioButton
@@ -188,7 +189,7 @@
                     android:buttonTint="@color/blue"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
-                    android:text="Mujer"
+                    android:text="@string/mujer"
                     android:textColor="@color/black" />
             </RadioGroup>
         </LinearLayout>
@@ -207,7 +208,7 @@
                 android:layout_marginTop="20dp"
                 android:layout_marginRight="20dp"
                 android:fontFamily="@font/montserrat_bold"
-                android:text="Actividad diaria:"
+                android:text="@string/activi"
                 android:textColor="@color/black" />
 
             <RadioGroup
@@ -227,7 +228,7 @@
                     android:checked="true"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
-                    android:text="Ligera"
+                    android:text="@string/ligera"
                     android:textColor="@color/black" />
 
                 <RadioButton
@@ -238,7 +239,7 @@
                     android:buttonTint="@color/blue"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
-                    android:text="Moderada"
+                    android:text="@string/moderada"
                     android:textColor="@color/black" />
 
                 <RadioButton
@@ -249,7 +250,7 @@
                     android:buttonTint="@color/blue"
                     android:fontFamily="@font/montserrat_regular"
                     android:gravity="center"
-                    android:text="Intensa"
+                    android:text="@string/intensa"
                     android:textColor="@color/black" />
             </RadioGroup>
         </LinearLayout>
@@ -259,11 +260,11 @@
             android:layout_width="match_parent"
             android:layout_height="40dp"
             android:layout_marginLeft="25dp"
-            android:layout_marginTop="25dp"
+            android:layout_marginTop="45dp"
             android:layout_marginRight="25dp"
             android:background="@drawable/boton_redondoazul"
             android:fontFamily="@font/montserrat_bold"
-            android:text="Calcular"
+            android:text="@string/calcula"
             android:textColor="@color/white"
             android:textSize="14sp" />
 

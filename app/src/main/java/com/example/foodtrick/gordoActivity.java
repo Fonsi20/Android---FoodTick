@@ -107,7 +107,7 @@ public class gordoActivity extends AppCompatActivity {
 
                     AlertDialog.Builder ventana = new AlertDialog.Builder(gordoActivity.this);
                     ventana.setTitle(R.string.ge);
-                    ventana.setMessage("Tienes un metabolismo basal es: " + String.valueOf(MB) + "\nTu gasto energético total es: " + String.valueOf(GET));
+                    ventana.setMessage(getResources().getString(R.string.tumetabolismoes) + " " + String.valueOf(MB) + "\n" + getResources().getString(R.string.tugastototal) + " " + String.valueOf(GET));
                     ventana.setIcon(R.drawable.foodtick);
                     ventana.show();
 
@@ -118,21 +118,21 @@ public class gordoActivity extends AppCompatActivity {
                     String texto = null;
 
                     if (IMC >= 40f) {
-                        texto = "Obesidad Morvido: " + IMC;
+                        texto = getResources().getString(R.string.obesidadMorvi) + " " + IMC;
                     } else if (IMC >= 35f && IMC <= 39.9f) {
-                        texto = "Obesidad Tipo II: " + IMC;
+                        texto = getResources().getString(R.string.obesidadtipo2) + " " + IMC;
                     } else if (IMC >= 30f && IMC <= 34.9f) {
-                        texto = "Obesidad Tipo I: " + IMC;
+                        texto = getResources().getString(R.string.obesidadtipo1) + " " + IMC;
                     } else if (IMC >= 25f && IMC <= 29.9f) {
-                        texto = "Sobrepeso: " + IMC;
+                        texto = getResources().getString(R.string.sobrepeso) + " " + IMC;
                     } else if (IMC >= 19f && IMC <= 24.9f) {
-                        texto = "Peso normal: " + IMC;
+                        texto = getResources().getString(R.string.normal) + " " + IMC;
                     } else if (IMC >= 17f && IMC <= 18.9f) {
-                        texto = "Desnutrición leve: " + IMC;
+                        texto = getResources().getString(R.string.desnutricionleve) + " " + IMC;
                     } else if (IMC >= 16f && IMC <= 16.9f) {
-                        texto = "Desnutrición moderada: " + IMC;
+                        texto = getResources().getString(R.string.desnutricionmedia) + " " + IMC;
                     } else if (IMC <= 15.9f) {
-                        texto = "Desnutrición grave: " + IMC;
+                        texto = getResources().getString(R.string.desnutricionmaxima) + " " + IMC;
                     }
 
                     AlertDialog.Builder ventana = new AlertDialog.Builder(gordoActivity.this);

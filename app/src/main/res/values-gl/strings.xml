@@ -38,5 +38,30 @@
     <string name="verduras">Verduras e Hortalizas</string>
     <string name="frutosSecos">Sementes e froitos secos</string>
     <string name="comoestas">¿Encontaste ben?</string>
+    <string name="igc">IGC</string>
+    <string name="ge">GE</string>
+    <string name="ligera">Ligera</string>
+    <string name="moderada">Moderada</string>
+    <string name="intensa">Intensa</string>
+    <string name="activi">Actividade diaria:</string>
+    <string name="mujer">Muller</string>
+    <string name="hombre">Home</string>
+    <string name="genero">Xénero:</string>
+    <string name="edad">Introduce a túa idade:</string>
+    <string name="calcula">Calcular</string>
+    <string name="peso">Introduce o teu peso:</string>
+    <string name="altura">Introduce a altura:</string>
+    <string name="tituloge">Calculando o gasto enerxético (GE)</string>
+    <string name="tituloigc">Cálculo do índice de graxa corporal (IGC)</string>
+    <string name="tumetabolismoes">O teu metabolismo basal é:</string>
+    <string name="tugastototal">O seu gasto enerxético total é:</string>
+    <string name="obesidadMorvi">Obesidade mórbida:</string>
+    <string name="obesidadtipo2">Obesidade Tipo II:</string>
+    <string name="obesidadtipo1">Obesidade Tipo I:</string>
+    <string name="sobrepeso">Sobrepeso:</string>
+    <string name="normal">Peso normal:</string>
+    <string name="desnutricionleve">Malnutrición leve:</string>
+    <string name="desnutricionmedia">Malnutrición moderada:</string>
+    <string name="desnutricionmaxima">Malnutrición grave:</string>
 
 </resources>
